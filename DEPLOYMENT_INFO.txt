@@ -1,0 +1,52 @@
+XENRA NEDERLAND - GITHUB DEPLOYMENT PACKAGE
+==========================================
+
+✅ BESTANDEN OVERVIEW:
+- index.html (hoofdpagina)
+- assets/ (CSS, JavaScript, images)
+- api/ (Vercel serverless functions)
+- vercel.json (Vercel configuratie)
+- 404.html (SPA routing support)
+- README.md (deployment instructies)
+
+✅ API ENDPOINTS:
+- /api/contact (contactformulier)
+- /api/register (pakket aanmeldingen)
+- /api/customer-login (klant inlog)
+
+✅ FEATURES:
+- Volledig responsive website
+- Contact formulier met validatie
+- Pakket aanmelding systeem
+- Customer login portal
+- SEO geoptimaliseerd
+- Google Analytics ready
+
+✅ DEPLOYMENT OPTIES:
+1. VERCEL (aanbevolen):
+   - Automatische HTTPS
+   - Serverless functions
+   - Custom domains
+   - CDN worldwide
+
+2. GITHUB PAGES:
+   - Gratis hosting
+   - Automatische updates
+   - SPA routing support
+
+✅ DEMO ACCOUNTS:
+- demo@xenra.nl / 123456
+- test@example.com / test123
+
+✅ CONTACT INFO:
+- Telefoon: 085 08 06 142 (lokaal tarief)
+- Email: info@xenra.nl
+- Website: www.xenra.nl
+
+📦 UPLOAD INSTRUCTIES:
+1. Selecteer alle bestanden in deze map
+2. Upload naar GitHub repository
+3. Deploy via Vercel of GitHub Pages
+4. Test alle functionaliteit
+
+🎯 STATUS: PRODUCTION READY
