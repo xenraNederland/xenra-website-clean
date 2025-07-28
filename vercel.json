@@ -1,15 +1,4 @@
 {
-  "functions": {
-    "api/contact.js": {
-      "runtime": "@vercel/node"
-    },
-    "api/register.js": {
-      "runtime": "@vercel/node"
-    },
-    "api/customer-login.js": {
-      "runtime": "@vercel/node"
-    }
-  },
   "rewrites": [
     {
       "source": "/((?!api/).*)",

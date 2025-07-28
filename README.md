@@ -1,34 +1,77 @@
-# Xenra Nederland Website
+# Xenra Nederland - Vercel Deployment
 
-Professional website voor Xenra Nederland - Nalatenschapbeheer en administratieve ondersteuning.
+## 🚀 Complete Website Package
 
-## Deployment Instructions
+Deze map bevat de volledige Xenra Nederland website, klaar voor Vercel deployment.
 
-### Voor Vercel Deployment:
-1. Upload alle bestanden naar GitHub repository
-2. Connect repository naar Vercel
-3. Framework: "Other" 
-4. Build Command: leeg laten
-5. Output Directory: leeg laten
-6. Install Command: leeg laten
+### ✅ Functionaliteiten
 
-### Voor GitHub Pages:
-1. Upload alle bestanden naar GitHub repository
-2. Ga naar Settings > Pages
-3. Source: Deploy from a branch
-4. Branch: main / (root)
+**Website Features:**
+- Professionele Xenra homepage met premium calculator
+- Contact formulier met directe email forwarding
+- Pakket aanmelding systeem
+- Responsive design + SEO optimalisatie
+- Google Analytics tracking (GTM-5GVSVHP4 + G-M3JCSZ0T9Y)
 
-## Features
-- Contact formulier
-- Pakket aanmeldingen  
-- Customer login (demo accounts)
-- Responsive design
-- SEO geoptimaliseerd
+**Mijn Xenra Portal:**
+- Customer login (demo: demo@xenra.nl / 123456)
+- Document upload en download
+- Voortgang tracking
+- Berichten systeem
 
-## Demo Accounts
+**CMS Dashboard:**
+- Admin login (admin / xenra2025)
+- Klantenbeheer en contact overzicht
+- Website statistieken
+- Email management
+
+### 📁 Bestand Structuur
+
+```
+xenra-vercel-final/
+├── index.html           # Hoofd website
+├── assets/             # CSS, JS, images
+├── api/                # Vercel serverless functies
+│   ├── contact.js      # Contact formulier
+│   ├── register.js     # Pakket aanmeldingen
+│   ├── customer-login.js # Mijn Xenra login
+│   └── cms-login.js    # CMS dashboard login
+└── vercel.json         # Vercel configuratie
+```
+
+### 🔧 Deployment Instructies
+
+1. **GitHub Repository:**
+   - Maak nieuwe repository aan
+   - Upload deze complete map
+
+2. **Vercel Setup:**
+   - Import GitHub repository in Vercel
+   - Framework: "Other"
+   - Build settings: allemaal leeg laten
+   - Deploy!
+
+3. **Custom Domain:**
+   - Voeg xenra.nl en www.xenra.nl toe in Vercel
+   - Update DNS records naar Vercel
+
+### 🧪 Test Accounts
+
+**Mijn Xenra:**
 - demo@xenra.nl / 123456
 - test@example.com / test123
 
-## Contact
-Telefoonnummer: 085 08 06 142 (lokaal tarief)
-Email: info@xenra.nl
+**CMS Dashboard:**
+- admin / xenra2025
+
+### ✅ Volledig Getest
+
+Alle functionaliteiten zijn getest en werkend:
+- ✅ Contact formulier submission
+- ✅ Pakket aanmeldingen
+- ✅ Customer login en dashboard
+- ✅ CMS login en overzicht
+- ✅ Responsive design
+- ✅ API endpoints
+
+**Klaar voor productie!**
