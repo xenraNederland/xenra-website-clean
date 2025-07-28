@@ -1,5 +1,6 @@
+// Vercel Serverless Function voor Customer Login
 export default async function handler(req, res) {
-  // Set CORS headers
+  // CORS headers
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
@@ -11,51 +12,92 @@ export default async function handler(req, res) {
   }
 
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method niet toegestaan' });
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
-    const { email, password } = req.body;
+    const { username, password } = req.body;
 
-    // Basic validation
-    if (!email || !password) {
+    // Validatie van verplichte velden
+    if (!username || !password) {
       return res.status(400).json({ 
-        error: 'Email en wachtwoord zijn verplicht' 
+        error: 'Gebruikersnaam en wachtwoord zijn verplicht' 
       });
     }
 
-    // Demo accounts for testing
+    // Demo login systeem - in productie zou dit tegen database worden gecontroleerd
     const demoAccounts = [
-      { email: 'demo@xenra.nl', password: '123456', name: 'Demo Gebruiker' },
-      { email: 'test@example.com', password: 'test123', name: 'Test Gebruiker' }
+      {
+        id: 1,
+        username: 'demo@xenra.nl',
+        password: '123456',
+        firstName: 'Demo',
+        lastName: 'Klant',
+        email: 'demo@xenra.nl',
+        packageType: 'Particulier',
+        isOnHold: false
+      },
+      {
+        id: 2,
+        username: 'test@example.com',
+        password: 'test123',
+        firstName: 'Test',
+        lastName: 'Gebruiker',
+        email: 'test@example.com',
+        packageType: 'ZZP',
+        isOnHold: false
+      }
     ];
 
-    const account = demoAccounts.find(acc => acc.email === email && acc.password === password);
+    // Zoek gebruiker in demo accounts
+    const user = demoAccounts.find(
+      acc => acc.username.toLowerCase() === username.toLowerCase() && acc.password === password
+    );
 
-    if (!account) {
+    if (!user) {
       return res.status(401).json({ 
-        error: 'Ongeldig email adres of wachtwoord' 
+        message: 'Onjuiste inloggegevens. Controleer uw gebruikersnaam en wachtwoord.' 
       });
     }
 
-    // Generate demo token
-    const token = 'demo_token_' + Date.now();
+    // Check if account is on hold
+    if (user.isOnHold) {
+      return res.status(423).json({
+        isOnHold: true,
+        reason: 'Account tijdelijk gepauzeerd.',
+        message: 'Uw account is tijdelijk geblokkeerd. Neem contact op voor meer informatie.'
+      });
+    }
 
-    console.log('Customer login successful:', { email, name: account.name });
+    // Generate mock JWT token (in productie zou dit een echte JWT zijn)
+    const token = `mock-jwt-token-${user.id}-${Date.now()}`;
 
-    res.status(200).json({ 
-      success: true, 
+    // Log successful login
+    console.log('Customer login successful:', {
+      username: user.username,
+      customerId: user.id,
+      timestamp: new Date().toISOString()
+    });
+
+    // Success response
+    return res.status(200).json({
+      success: true,
+      message: 'Succesvol ingelogd',
       token,
-      user: { 
-        email: account.email, 
-        name: account.name 
+      customerId: user.id,
+      customer: {
+        id: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        packageType: user.packageType
       }
     });
 
   } catch (error) {
     console.error('Customer login error:', error);
-    res.status(500).json({ 
-      error: 'Er is een fout opgetreden bij het inloggen' 
+    return res.status(500).json({
+      error: 'Er is een fout opgetreden bij het inloggen. Probeer het opnieuw.'
     });
   }
 }

@@ -1,5 +1,6 @@
+// Vercel Serverless Function voor Contact Formulier
 export default async function handler(req, res) {
-  // Set CORS headers
+  // CORS headers
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
@@ -11,20 +12,20 @@ export default async function handler(req, res) {
   }
 
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method niet toegestaan' });
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
     const { name, email, phone, inquiryType, message } = req.body;
 
-    // Basic validation
+    // Validatie
     if (!name || !email || !message) {
       return res.status(400).json({ 
-        error: 'Naam, email en bericht zijn verplicht' 
+        error: 'Naam, email en bericht zijn verplichte velden' 
       });
     }
 
-    // Email validation
+    // Email validatie
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return res.status(400).json({ 
@@ -32,8 +33,8 @@ export default async function handler(req, res) {
       });
     }
 
-    // Log the contact form submission
-    console.log('Contact form submission:', {
+    // Log het contact formulier (in productie zou dit naar database gaan)
+    console.log('Contact formulier ontvangen:', {
       name,
       email,
       phone,
@@ -42,16 +43,19 @@ export default async function handler(req, res) {
       timestamp: new Date().toISOString()
     });
 
-    // Simulate success response
-    res.status(200).json({ 
-      success: true, 
-      message: 'Bedankt voor uw bericht. Wij nemen spoedig contact met u op.' 
+    // Simuleer email naar info@xenra.nl
+    console.log('Email zou worden verzonden naar info@xenra.nl');
+
+    // Success response
+    return res.status(200).json({
+      success: true,
+      message: 'Bedankt voor uw bericht. Wij zullen z.s.m. reageren op uw mail.'
     });
 
   } catch (error) {
     console.error('Contact form error:', error);
-    res.status(500).json({ 
-      error: 'Er is een fout opgetreden bij het verzenden van uw bericht' 
+    return res.status(500).json({
+      error: 'Er is een fout opgetreden. Probeer het opnieuw of bel ons op 085 08 06 142.'
     });
   }
 }

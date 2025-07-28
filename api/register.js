@@ -1,5 +1,6 @@
+// Vercel Serverless Function voor Registratie/Aanmelding
 export default async function handler(req, res) {
-  // Set CORS headers
+  // CORS headers
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
@@ -11,24 +12,35 @@ export default async function handler(req, res) {
   }
 
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method niet toegestaan' });
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
-    const { 
-      name, address, postalCode, city, phone, email, age, 
-      packageType, loyaltyBonus, digitalVault, monthlyRate, 
-      startDate, paymentMethod, cancellationDate 
+    const {
+      name,
+      address,
+      postalCode,
+      city,
+      phone,
+      email,
+      age,
+      packageType,
+      loyaltyBonus,
+      digitalVault,
+      monthlyRate,
+      startDate,
+      paymentMethod,
+      cancellationDate
     } = req.body;
 
-    // Basic validation
-    if (!name || !email || !phone || !address) {
+    // Validatie van verplichte velden
+    if (!name || !address || !postalCode || !city || !phone || !email || !packageType || !paymentMethod) {
       return res.status(400).json({ 
-        error: 'Naam, email, telefoon en adres zijn verplicht' 
+        error: 'Alle verplichte velden moeten worden ingevuld' 
       });
     }
 
-    // Email validation
+    // Email validatie
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return res.status(400).json({ 
@@ -36,29 +48,52 @@ export default async function handler(req, res) {
       });
     }
 
-    // Dutch postal code validation (1234AB format)
-    const postalCodeRegex = /^[1-9][0-9]{3}[A-Z]{2}$/;
-    if (postalCode && !postalCodeRegex.test(postalCode.replace(/\s/g, ''))) {
+    // Postcode validatie (Nederlandse postcode)
+    const postalCodeRegex = /^[1-9][0-9]{3}\s?[A-Za-z]{2}$/;
+    if (!postalCodeRegex.test(postalCode)) {
       return res.status(400).json({ 
-        error: 'Ongeldige postcode. Gebruik formaat: 1234AB' 
+        error: 'Ongeldige postcode format (gebruik 1234AB)' 
       });
     }
 
-    // Log the registration
-    console.log('Registration submission:', {
-      name, email, phone, packageType, monthlyRate,
+    // Phone validatie (Nederlandse nummers)
+    const phoneRegex = /^(\+31|0)[0-9]{9}$/;
+    if (!phoneRegex.test(phone.replace(/\s|-/g, ''))) {
+      return res.status(400).json({ 
+        error: 'Ongeldig telefoonnummer' 
+      });
+    }
+
+    // Log de registratie (in productie zou dit naar database gaan)
+    console.log('Nieuwe pakket aanmelding ontvangen:', {
+      name,
+      email,
+      packageType,
+      monthlyRate,
+      paymentMethod,
       timestamp: new Date().toISOString()
     });
 
-    res.status(200).json({ 
-      success: true, 
-      message: `Bedankt ${name}! Uw aanmelding voor het ${packageType} pakket is ontvangen. Wij nemen spoedig contact met u op.` 
+    // In een echte implementatie zou hier de registratie worden opgeslagen
+    // en een bevestigingsmail worden verzonden
+    
+    // Success response met Nederlandse tekst
+    return res.status(200).json({
+      success: true,
+      message: 'Uw aanmelding is succesvol ontvangen! Wij nemen binnen 1 werkdag contact met u op voor de afronding.',
+      registration: {
+        id: Math.floor(Math.random() * 10000), // Mock ID
+        name,
+        packageType,
+        monthlyRate,
+        registrationDate: new Date().toISOString()
+      }
     });
 
   } catch (error) {
     console.error('Registration error:', error);
-    res.status(500).json({ 
-      error: 'Er is een fout opgetreden bij uw aanmelding' 
+    return res.status(500).json({
+      error: 'Er is een fout opgetreden bij het verwerken van uw aanmelding. Probeer het opnieuw of bel ons op 085 08 06 142.'
     });
   }
 }
