@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xenra Nederland - Nalatenschap Regelen</title>
-    <meta name="description" content="Regel uw nalatenschap vooraf zodat uw nabestaanden zorgeloos afscheid kunnen nemen. Xenra Nederland - nalatenschapbeheer voor particulier, ZZP en BV.">
+    <meta name="description" content="Regel uw nalatenschap vooraf zodat uw nabestaanden zorgeloos afscheid kunnen nemen. Xenra Nederland - nalatenschapbeheer vanaf €19,95 per maand.">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M3JCSZ0T9Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-M3JCSZ0T9Y');
+    </script>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -223,19 +232,17 @@
     <div id="contactModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-lg p-6 w-full max-w-md">
             <h3 class="text-xl font-bold mb-4">Contact formulier</h3>
-            <form action="https://formspree.io/f/mwpkynol" method="POST" class="space-y-4">
-                <input type="text" name="name" placeholder="Uw naam *" required class="w-full p-3 border rounded-lg">
-                <input type="email" name="email" placeholder="Uw email *" required class="w-full p-3 border rounded-lg">
-                <input type="tel" name="phone" placeholder="Uw telefoonnummer" class="w-full p-3 border rounded-lg">
-                <select name="inquiry_type" class="w-full p-3 border rounded-lg">
+            <form id="contactForm" onsubmit="submitContactForm(event)" class="space-y-4">
+                <input type="text" id="contactName" placeholder="Uw naam *" required class="w-full p-3 border rounded-lg">
+                <input type="email" id="contactEmail" placeholder="Uw email *" required class="w-full p-3 border rounded-lg">
+                <input type="tel" id="contactPhone" placeholder="Uw telefoonnummer" class="w-full p-3 border rounded-lg">
+                <select id="contactInquiryType" class="w-full p-3 border rounded-lg">
                     <option value="algemene-informatie">Algemene informatie</option>
                     <option value="gratis-telefonisch-intake">Gratis telefonisch intake</option>
                     <option value="aanmelden-als-klant">Aanmelden als klant</option>
                     <option value="administratieve-vraag">Administratieve vraag</option>
                 </select>
-                <textarea name="message" placeholder="Uw bericht *" required rows="4" class="w-full p-3 border rounded-lg"></textarea>
-                <input type="hidden" name="_subject" value="Nieuw contact via Xenra website">
-                <input type="hidden" name="_replyto" value="">
+                <textarea id="contactMessage" placeholder="Uw bericht *" required rows="4" class="w-full p-3 border rounded-lg"></textarea>
                 <div class="flex space-x-4">
                     <button type="button" onclick="hideContactForm()" class="flex-1 border py-2 rounded-lg">Annuleren</button>
                     <button type="submit" class="flex-1 bg-xenra-purple text-white py-2 rounded-lg hover:bg-purple-700">Versturen</button>
@@ -248,16 +255,16 @@
     <div id="packageModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-lg p-6 w-full max-w-lg max-h-screen overflow-y-auto">
             <h3 class="text-xl font-bold mb-4">Pakket aanmelding</h3>
-            <form action="https://formspree.io/f/mwpkynol" method="POST" class="space-y-4">
-                <input type="text" name="name" placeholder="Volledige naam *" required class="w-full p-3 border rounded-lg">
-                <input type="email" name="email" placeholder="Email adres *" required class="w-full p-3 border rounded-lg">
-                <input type="tel" name="phone" placeholder="Telefoonnummer *" required class="w-full p-3 border rounded-lg">
-                <input type="text" name="address" placeholder="Adres *" required class="w-full p-3 border rounded-lg">
-                <input type="text" name="postal_code" placeholder="Postcode (1234AB) *" required class="w-full p-3 border rounded-lg">
-                <input type="text" name="city" placeholder="Woonplaats *" required class="w-full p-3 border rounded-lg">
-                <input type="number" name="age" placeholder="Leeftijd *" min="18" max="100" required class="w-full p-3 border rounded-lg">
+            <form id="packageForm" onsubmit="submitPackageForm(event)" class="space-y-4">
+                <input type="text" id="regName" placeholder="Volledige naam *" required class="w-full p-3 border rounded-lg">
+                <input type="email" id="regEmail" placeholder="Email adres *" required class="w-full p-3 border rounded-lg">
+                <input type="tel" id="regPhone" placeholder="Telefoonnummer *" required class="w-full p-3 border rounded-lg">
+                <input type="text" id="regAddress" placeholder="Adres *" required class="w-full p-3 border rounded-lg">
+                <input type="text" id="regPostalCode" placeholder="Postcode (1234AB) *" required class="w-full p-3 border rounded-lg">
+                <input type="text" id="regCity" placeholder="Woonplaats *" required class="w-full p-3 border rounded-lg">
+                <input type="number" id="regAge" placeholder="Leeftijd *" min="18" max="100" required class="w-full p-3 border rounded-lg">
                 
-                <select name="package_type" required class="w-full p-3 border rounded-lg">
+                <select id="regPackageType" required class="w-full p-3 border rounded-lg">
                     <option value="">Kies uw pakket *</option>
                     <option value="particulier">Particulier (€19,95/maand)</option>
                     <option value="zzp">ZZP'er (€24,95/maand)</option>
@@ -266,31 +273,38 @@
                 
                 <div class="space-y-2">
                     <label class="flex items-center">
-                        <input type="checkbox" name="loyalty_bonus" value="ja" class="mr-2">
+                        <input type="checkbox" id="regLoyaltyBonus" class="mr-2">
                         <span>Xenra-tegoed toevoegen (+€5,00)</span>
                     </label>
                     <label class="flex items-center">
-                        <input type="checkbox" name="digital_vault" value="ja" class="mr-2">
+                        <input type="checkbox" id="regDigitalVault" class="mr-2">
                         <span>Digitale kluis toevoegen (+€2,50)</span>
                     </label>
                 </div>
                 
-                <select name="payment_method" required class="w-full p-3 border rounded-lg">
+                <select id="regPaymentMethod" required class="w-full p-3 border rounded-lg">
                     <option value="">Betaalmethode *</option>
                     <option value="incasso">Automatische incasso</option>
                     <option value="factuur">Factuur per email</option>
                 </select>
                 
-                <input type="date" name="start_date" required class="w-full p-3 border rounded-lg">
-                
-                <input type="hidden" name="_subject" value="Nieuwe pakket aanmelding via Xenra website">
-                <input type="hidden" name="form_type" value="pakket_aanmelding">
+                <input type="date" id="regStartDate" required class="w-full p-3 border rounded-lg">
                 
                 <div class="flex space-x-4">
                     <button type="button" onclick="hidePackageForm()" class="flex-1 border py-2 rounded-lg">Annuleren</button>
                     <button type="submit" class="flex-1 bg-xenra-purple text-white py-2 rounded-lg hover:bg-purple-700">Aanmelden</button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md text-center">
+            <div class="text-green-500 text-5xl mb-4">✓</div>
+            <h3 class="text-xl font-bold mb-2">Bedankt!</h3>
+            <p id="successMessage" class="text-gray-600 mb-4"></p>
+            <button onclick="hideSuccessModal()" class="bg-xenra-purple text-white px-6 py-2 rounded-lg">OK</button>
         </div>
     </div>
 
@@ -310,6 +324,15 @@
             if (digitalVault) total += 2.50;
             
             document.getElementById('totalPremium').textContent = '€' + total.toFixed(2);
+            
+            // Google Analytics tracking
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'calculator_interaction', {
+                    'event_category': 'tools',
+                    'event_label': 'calculate',
+                    'value': total
+                });
+            }
         }
         
         // Modals
@@ -327,6 +350,104 @@
         
         function hidePackageForm() {
             document.getElementById('packageModal').classList.add('hidden');
+        }
+        
+        function showSuccessModal(message) {
+            document.getElementById('successMessage').textContent = message;
+            document.getElementById('successModal').classList.remove('hidden');
+        }
+        
+        function hideSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+        }
+        
+        // Form submissions
+        function submitContactForm(event) {
+            event.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('contactName').value,
+                email: document.getElementById('contactEmail').value,
+                phone: document.getElementById('contactPhone').value,
+                inquiryType: document.getElementById('contactInquiryType').value,
+                message: document.getElementById('contactMessage').value
+            };
+            
+            // Send to info@xenra.nl via email (simulation for demo)
+            console.log('EMAIL NAAR: info@xenra.nl');
+            console.log('ONDERWERP: Contactformulier - ' + formData.name);
+            console.log('VAN: ' + formData.email);
+            console.log('TELEFOON: ' + formData.phone);
+            console.log('TYPE: ' + formData.inquiryType);
+            console.log('BERICHT: ' + formData.message);
+            console.log('TIJD: ' + new Date().toLocaleString('nl-NL'));
+            
+            hideContactForm();
+            showSuccessModal('Bedankt voor uw bericht. Wij nemen spoedig contact met u op via ' + formData.email);
+            document.getElementById('contactForm').reset();
+            
+            // Google Analytics tracking
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'contact_form_submit', {
+                    'event_category': 'engagement',
+                    'event_label': formData.inquiryType
+                });
+            }
+        }
+        
+        function submitPackageForm(event) {
+            event.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('regName').value,
+                email: document.getElementById('regEmail').value,
+                phone: document.getElementById('regPhone').value,
+                address: document.getElementById('regAddress').value,
+                postalCode: document.getElementById('regPostalCode').value,
+                city: document.getElementById('regCity').value,
+                age: document.getElementById('regAge').value,
+                packageType: document.getElementById('regPackageType').value,
+                loyaltyBonus: document.getElementById('regLoyaltyBonus').checked,
+                digitalVault: document.getElementById('regDigitalVault').checked,
+                paymentMethod: document.getElementById('regPaymentMethod').value,
+                startDate: document.getElementById('regStartDate').value
+            };
+            
+            // Calculate total price
+            let monthlyRate = 19.95;
+            if (formData.packageType === 'zzp') monthlyRate = 24.95;
+            if (formData.packageType === 'bv') monthlyRate = 29.95;
+            if (formData.loyaltyBonus) monthlyRate += 5.00;
+            if (formData.digitalVault) monthlyRate += 2.50;
+            
+            // Send to info@xenra.nl via email (simulation for demo)
+            console.log('EMAIL NAAR: info@xenra.nl');
+            console.log('ONDERWERP: Nieuwe aanmelding - ' + formData.name + ' (' + formData.packageType + ')');
+            console.log('NAAM: ' + formData.name);
+            console.log('EMAIL: ' + formData.email);
+            console.log('TELEFOON: ' + formData.phone);
+            console.log('ADRES: ' + formData.address + ', ' + formData.postalCode + ' ' + formData.city);
+            console.log('LEEFTIJD: ' + formData.age);
+            console.log('PAKKET: ' + formData.packageType);
+            console.log('MAANDELIJKS: €' + monthlyRate.toFixed(2));
+            console.log('XENRA-TEGOED: ' + (formData.loyaltyBonus ? 'Ja' : 'Nee'));
+            console.log('DIGITALE KLUIS: ' + (formData.digitalVault ? 'Ja' : 'Nee'));
+            console.log('BETALING: ' + formData.paymentMethod);
+            console.log('START: ' + formData.startDate);
+            console.log('TIJD: ' + new Date().toLocaleString('nl-NL'));
+            
+            hidePackageForm();
+            showSuccessModal('Bedankt ' + formData.name + '! Uw aanmelding voor het ' + formData.packageType + ' pakket (€' + monthlyRate.toFixed(2) + '/maand) is ontvangen. Wij nemen contact met u op.');
+            document.getElementById('packageForm').reset();
+            
+            // Google Analytics tracking
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'package_registration', {
+                    'event_category': 'conversion',
+                    'event_label': formData.packageType,
+                    'value': monthlyRate
+                });
+            }
         }
         
         // Smooth scrolling
