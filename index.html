@@ -1,469 +1,437 @@
 <!DOCTYPE html>
 <html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xenra Nederland - Nalatenschap Regelen</title>
-    <meta name="description" content="Regel uw nalatenschap vooraf zodat uw nabestaanden zorgeloos afscheid kunnen nemen. Xenra Nederland - nalatenschapbeheer vanaf €19,95 per maand.">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5GVSVHP4');</script>
+    <!-- End Google Tag Manager -->
     
-    <!-- Google Analytics -->
+    <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M3JCSZ0T9Y"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-M3JCSZ0T9Y');
-    </script>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'xenra-purple': '#7c3aed',
-                        'xenra-green': '#065f46',
-                        'xenra-beige': '#fef7ed'
-                    }
-                }
-            }
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-M3JCSZ0T9Y', {
+        page_title: 'Xenra Nederland - Nalatenschap Regelen',
+        page_location: window.location.href,
+        send_page_view: true,
+        custom_map: {
+          'custom_parameter_1': 'business_type',
+          'custom_parameter_2': 'content_group'
         }
-    </script>
-</head>
-<body class="bg-white">
-
-    <!-- Emergency Contact Banner -->
-    <div class="bg-red-600 text-white text-center py-2">
-        <span class="text-sm">Overleden melden - 085 08 06 142 (lokaal tarief)</span>
-    </div>
-
-    <!-- Header -->
-    <header class="bg-xenra-purple text-white py-4">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                    <span class="text-xenra-purple font-bold text-lg">X</span>
-                </div>
-                <h1 class="text-2xl font-bold">Xenra Nederland</h1>
-            </div>
-            <nav class="hidden md:flex space-x-6">
-                <a href="#home" class="hover:text-gray-200">Home</a>
-                <a href="#diensten" class="hover:text-gray-200">Diensten</a>
-                <a href="#pakketten" class="hover:text-gray-200">Pakketten</a>
-                <a href="#contact" class="hover:text-gray-200">Contact</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="bg-gradient-to-br from-xenra-purple to-xenra-green text-white py-20">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-5xl font-bold mb-6">Regel uw nalatenschap vooraf</h1>
-            <p class="text-xl mb-8 max-w-3xl mx-auto">
-                Zodat uw nabestaanden zorgeloos afscheid kunnen nemen. 
-                Wij regelen alle administratie en formaliteiten.
-            </p>
-            <div class="space-x-4">
-                <button onclick="showContactForm()" class="bg-white text-xenra-purple px-8 py-3 rounded-lg font-semibold hover:bg-gray-100">
-                    Gratis advies
-                </button>
-                <button onclick="showPackageForm()" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-xenra-purple">
-                    Direct afsluiten
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Target Groups -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Voor wie regelen wij?</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
-                    <div class="w-16 h-16 bg-xenra-purple rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-white text-2xl">👤</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Particulieren</h3>
-                    <p class="text-gray-600 mb-6">Voor iedereen die zijn nabestaanden wil ontzorgen bij het regelen van de nalatenschap.</p>
-                    <div class="text-2xl font-bold text-xenra-green">€19,95</div>
-                    <div class="text-sm text-gray-500">per maand</div>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
-                    <div class="w-16 h-16 bg-xenra-purple rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-white text-2xl">💼</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">ZZP'ers</h3>
-                    <p class="text-gray-600 mb-6">Speciaal pakket voor zelfstandig ondernemers met extra aandacht voor bedrijfsafwikkeling.</p>
-                    <div class="text-2xl font-bold text-xenra-green">€24,95</div>
-                    <div class="text-sm text-gray-500">per maand</div>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
-                    <div class="w-16 h-16 bg-xenra-purple rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-white text-2xl">🏢</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">BV/NV houders</h3>
-                    <p class="text-gray-600 mb-6">Voor ondernemers met rechtspersoon. Inclusief bedrijfsoverdracht en aandelenafwikkeling.</p>
-                    <div class="text-2xl font-bold text-xenra-green">€29,95</div>
-                    <div class="text-sm text-gray-500">per maand</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section id="diensten" class="py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Wat regelen wij voor u?</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-xenra-beige rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-xenra-green text-2xl">📋</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Administratie afhandeling</h3>
-                    <p class="text-gray-600">Alle papierwerk en formaliteiten na overlijden</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-xenra-beige rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-xenra-green text-2xl">⚖️</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Testament ondersteuning</h3>
-                    <p class="text-gray-600">Hulp bij opstellen en actualiseren van testamenten</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-xenra-beige rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-xenra-green text-2xl">💰</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Boedel afwikkeling</h3>
-                    <p class="text-gray-600">Professionele begeleiding bij nalatenschap</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-xenra-beige rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-xenra-green text-2xl">🔒</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Digitale kluis</h3>
-                    <p class="text-gray-600">Veilige opslag van belangrijke documenten</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-xenra-beige rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-xenra-green text-2xl">📞</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">24/7 bereikbaarheid</h3>
-                    <p class="text-gray-600">Ook buiten kantooruren voor noodgevallen</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-xenra-beige rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-xenra-green text-2xl">👥</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Persoonlijke begeleiding</h3>
-                    <p class="text-gray-600">Vaste contactpersoon die uw situatie kent</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Premium Calculator -->
-    <section id="pakketten" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Bereken uw maandelijkse bijdrage</h2>
-            <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-                <div class="space-y-6">
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Uw situatie</label>
-                        <select id="packageType" onchange="calculatePremium()" class="w-full p-3 border rounded-lg">
-                            <option value="particulier">Particulier (€19,95)</option>
-                            <option value="zzp">ZZP'er (€24,95)</option>
-                            <option value="bv">BV/NV houder (€29,95)</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Uw leeftijd</label>
-                        <input type="number" id="age" value="45" min="18" max="100" onchange="calculatePremium()" class="w-full p-3 border rounded-lg">
-                    </div>
-                    <div class="space-y-2">
-                        <label class="flex items-center">
-                            <input type="checkbox" id="loyaltyBonus" onchange="calculatePremium()" class="mr-2">
-                            <span>Xenra-tegoed toevoegen (+€5,00)</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="checkbox" id="digitalVault" onchange="calculatePremium()" class="mr-2">
-                            <span>Digitale kluis toevoegen (+€2,50)</span>
-                        </label>
-                    </div>
-                    <div class="bg-xenra-beige p-6 rounded-lg text-center">
-                        <div id="totalPremium" class="text-3xl font-bold text-xenra-green">€19,95</div>
-                        <div class="text-sm text-gray-600">per maand</div>
-                    </div>
-                    <button onclick="showPackageForm()" class="w-full bg-xenra-purple text-white py-3 rounded-lg font-semibold hover:bg-purple-700">
-                        Nu direct afsluiten
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-16 bg-xenra-purple text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-8">Contact opnemen?</h2>
-            <div class="max-w-2xl mx-auto mb-8">
-                <p class="mb-6">Heeft u vragen over onze diensten? Neem gerust contact met ons op!</p>
-                <div class="space-y-2 mb-8">
-                    <p class="text-lg">📞 <strong>085 08 06 142</strong> (lokaal tarief)</p>
-                    <p class="text-lg">✉️ <strong>info@xenra.nl</strong></p>
-                    <p class="text-sm">Bereikbaar ma-vr 09:00-17:00</p>
-                </div>
-                <button onclick="showContactForm()" class="bg-white text-xenra-purple px-8 py-3 rounded-lg font-semibold hover:bg-gray-100">
-                    Contact formulier
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 Xenra Nederland. Alle rechten voorbehouden.</p>
-            <p class="text-sm text-gray-400 mt-2">Nalatenschapbeheer en administratieve ondersteuning</p>
-        </div>
-    </footer>
-
-    <!-- Contact Modal -->
-    <div id="contactModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-lg p-6 w-full max-w-md">
-            <h3 class="text-xl font-bold mb-4">Contact formulier</h3>
-            <form id="contactForm" onsubmit="submitContactForm(event)" class="space-y-4">
-                <input type="text" id="contactName" placeholder="Uw naam *" required class="w-full p-3 border rounded-lg">
-                <input type="email" id="contactEmail" placeholder="Uw email *" required class="w-full p-3 border rounded-lg">
-                <input type="tel" id="contactPhone" placeholder="Uw telefoonnummer" class="w-full p-3 border rounded-lg">
-                <select id="contactInquiryType" class="w-full p-3 border rounded-lg">
-                    <option value="algemene-informatie">Algemene informatie</option>
-                    <option value="gratis-telefonisch-intake">Gratis telefonisch intake</option>
-                    <option value="aanmelden-als-klant">Aanmelden als klant</option>
-                    <option value="administratieve-vraag">Administratieve vraag</option>
-                </select>
-                <textarea id="contactMessage" placeholder="Uw bericht *" required rows="4" class="w-full p-3 border rounded-lg"></textarea>
-                <div class="flex space-x-4">
-                    <button type="button" onclick="hideContactForm()" class="flex-1 border py-2 rounded-lg">Annuleren</button>
-                    <button type="submit" class="flex-1 bg-xenra-purple text-white py-2 rounded-lg hover:bg-purple-700">Versturen</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Package Modal -->
-    <div id="packageModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-lg p-6 w-full max-w-lg max-h-screen overflow-y-auto">
-            <h3 class="text-xl font-bold mb-4">Pakket aanmelding</h3>
-            <form id="packageForm" onsubmit="submitPackageForm(event)" class="space-y-4">
-                <input type="text" id="regName" placeholder="Volledige naam *" required class="w-full p-3 border rounded-lg">
-                <input type="email" id="regEmail" placeholder="Email adres *" required class="w-full p-3 border rounded-lg">
-                <input type="tel" id="regPhone" placeholder="Telefoonnummer *" required class="w-full p-3 border rounded-lg">
-                <input type="text" id="regAddress" placeholder="Adres *" required class="w-full p-3 border rounded-lg">
-                <input type="text" id="regPostalCode" placeholder="Postcode (1234AB) *" required class="w-full p-3 border rounded-lg">
-                <input type="text" id="regCity" placeholder="Woonplaats *" required class="w-full p-3 border rounded-lg">
-                <input type="number" id="regAge" placeholder="Leeftijd *" min="18" max="100" required class="w-full p-3 border rounded-lg">
-                
-                <select id="regPackageType" required class="w-full p-3 border rounded-lg">
-                    <option value="">Kies uw pakket *</option>
-                    <option value="particulier">Particulier (€19,95/maand)</option>
-                    <option value="zzp">ZZP'er (€24,95/maand)</option>
-                    <option value="bv">BV/NV houder (€29,95/maand)</option>
-                </select>
-                
-                <div class="space-y-2">
-                    <label class="flex items-center">
-                        <input type="checkbox" id="regLoyaltyBonus" class="mr-2">
-                        <span>Xenra-tegoed toevoegen (+€5,00)</span>
-                    </label>
-                    <label class="flex items-center">
-                        <input type="checkbox" id="regDigitalVault" class="mr-2">
-                        <span>Digitale kluis toevoegen (+€2,50)</span>
-                    </label>
-                </div>
-                
-                <select id="regPaymentMethod" required class="w-full p-3 border rounded-lg">
-                    <option value="">Betaalmethode *</option>
-                    <option value="incasso">Automatische incasso</option>
-                    <option value="factuur">Factuur per email</option>
-                </select>
-                
-                <input type="date" id="regStartDate" required class="w-full p-3 border rounded-lg">
-                
-                <div class="flex space-x-4">
-                    <button type="button" onclick="hidePackageForm()" class="flex-1 border py-2 rounded-lg">Annuleren</button>
-                    <button type="submit" class="flex-1 bg-xenra-purple text-white py-2 rounded-lg hover:bg-purple-700">Aanmelden</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Success Modal -->
-    <div id="successModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-lg p-6 w-full max-w-md text-center">
-            <div class="text-green-500 text-5xl mb-4">✓</div>
-            <h3 class="text-xl font-bold mb-2">Bedankt!</h3>
-            <p id="successMessage" class="text-gray-600 mb-4"></p>
-            <button onclick="hideSuccessModal()" class="bg-xenra-purple text-white px-6 py-2 rounded-lg">OK</button>
-        </div>
-    </div>
-
-    <script>
-        // Calculator
-        function calculatePremium() {
-            const packageType = document.getElementById('packageType').value;
-            const loyaltyBonus = document.getElementById('loyaltyBonus').checked;
-            const digitalVault = document.getElementById('digitalVault').checked;
-            
-            let basePrice = 19.95;
-            if (packageType === 'zzp') basePrice = 24.95;
-            if (packageType === 'bv') basePrice = 29.95;
-            
-            let total = basePrice;
-            if (loyaltyBonus) total += 5.00;
-            if (digitalVault) total += 2.50;
-            
-            document.getElementById('totalPremium').textContent = '€' + total.toFixed(2);
-            
-            // Google Analytics tracking
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'calculator_interaction', {
-                    'event_category': 'tools',
-                    'event_label': 'calculate',
-                    'value': total
-                });
-            }
-        }
-        
-        // Modals
-        function showContactForm() {
-            document.getElementById('contactModal').classList.remove('hidden');
-        }
-        
-        function hideContactForm() {
-            document.getElementById('contactModal').classList.add('hidden');
-        }
-        
-        function showPackageForm() {
-            document.getElementById('packageModal').classList.remove('hidden');
-        }
-        
-        function hidePackageForm() {
-            document.getElementById('packageModal').classList.add('hidden');
-        }
-        
-        function showSuccessModal(message) {
-            document.getElementById('successMessage').textContent = message;
-            document.getElementById('successModal').classList.remove('hidden');
-        }
-        
-        function hideSuccessModal() {
-            document.getElementById('successModal').classList.add('hidden');
-        }
-        
-        // Form submissions
-        function submitContactForm(event) {
-            event.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('contactName').value,
-                email: document.getElementById('contactEmail').value,
-                phone: document.getElementById('contactPhone').value,
-                inquiryType: document.getElementById('contactInquiryType').value,
-                message: document.getElementById('contactMessage').value
-            };
-            
-            // Send to info@xenra.nl via email (simulation for demo)
-            console.log('EMAIL NAAR: info@xenra.nl');
-            console.log('ONDERWERP: Contactformulier - ' + formData.name);
-            console.log('VAN: ' + formData.email);
-            console.log('TELEFOON: ' + formData.phone);
-            console.log('TYPE: ' + formData.inquiryType);
-            console.log('BERICHT: ' + formData.message);
-            console.log('TIJD: ' + new Date().toLocaleString('nl-NL'));
-            
-            hideContactForm();
-            showSuccessModal('Bedankt voor uw bericht. Wij nemen spoedig contact met u op via ' + formData.email);
-            document.getElementById('contactForm').reset();
-            
-            // Google Analytics tracking
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'contact_form_submit', {
-                    'event_category': 'engagement',
-                    'event_label': formData.inquiryType
-                });
-            }
-        }
-        
-        function submitPackageForm(event) {
-            event.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('regName').value,
-                email: document.getElementById('regEmail').value,
-                phone: document.getElementById('regPhone').value,
-                address: document.getElementById('regAddress').value,
-                postalCode: document.getElementById('regPostalCode').value,
-                city: document.getElementById('regCity').value,
-                age: document.getElementById('regAge').value,
-                packageType: document.getElementById('regPackageType').value,
-                loyaltyBonus: document.getElementById('regLoyaltyBonus').checked,
-                digitalVault: document.getElementById('regDigitalVault').checked,
-                paymentMethod: document.getElementById('regPaymentMethod').value,
-                startDate: document.getElementById('regStartDate').value
-            };
-            
-            // Calculate total price
-            let monthlyRate = 19.95;
-            if (formData.packageType === 'zzp') monthlyRate = 24.95;
-            if (formData.packageType === 'bv') monthlyRate = 29.95;
-            if (formData.loyaltyBonus) monthlyRate += 5.00;
-            if (formData.digitalVault) monthlyRate += 2.50;
-            
-            // Send to info@xenra.nl via email (simulation for demo)
-            console.log('EMAIL NAAR: info@xenra.nl');
-            console.log('ONDERWERP: Nieuwe aanmelding - ' + formData.name + ' (' + formData.packageType + ')');
-            console.log('NAAM: ' + formData.name);
-            console.log('EMAIL: ' + formData.email);
-            console.log('TELEFOON: ' + formData.phone);
-            console.log('ADRES: ' + formData.address + ', ' + formData.postalCode + ' ' + formData.city);
-            console.log('LEEFTIJD: ' + formData.age);
-            console.log('PAKKET: ' + formData.packageType);
-            console.log('MAANDELIJKS: €' + monthlyRate.toFixed(2));
-            console.log('XENRA-TEGOED: ' + (formData.loyaltyBonus ? 'Ja' : 'Nee'));
-            console.log('DIGITALE KLUIS: ' + (formData.digitalVault ? 'Ja' : 'Nee'));
-            console.log('BETALING: ' + formData.paymentMethod);
-            console.log('START: ' + formData.startDate);
-            console.log('TIJD: ' + new Date().toLocaleString('nl-NL'));
-            
-            hidePackageForm();
-            showSuccessModal('Bedankt ' + formData.name + '! Uw aanmelding voor het ' + formData.packageType + ' pakket (€' + monthlyRate.toFixed(2) + '/maand) is ontvangen. Wij nemen contact met u op.');
-            document.getElementById('packageForm').reset();
-            
-            // Google Analytics tracking
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'package_registration', {
-                    'event_category': 'conversion',
-                    'event_label': formData.packageType,
-                    'value': monthlyRate
-                });
-            }
-        }
-        
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
+      });
+      
+      // Enhanced tracking functions
+      window.trackContactForm = function(formType) {
+        gtag('event', 'contact_form_submit', {
+          'event_category': 'engagement',
+          'event_label': formType,
+          'form_location': 'website'
         });
         
-        // Initialize calculator
-        calculatePremium();
+        // Also push to dataLayer for GTM
+        window.dataLayer.push({
+          'event': 'contact_form_submit',
+          'form_type': formType,
+          'form_location': 'homepage'
+        });
+      };
+      
+      // Calculator tracking function
+      window.trackCalculator = function(action, value) {
+        gtag('event', 'calculator_interaction', {
+          'event_category': 'tools',
+          'event_label': action,
+          'value': value
+        });
+        
+        // Also push to dataLayer for GTM
+        window.dataLayer.push({
+          'event': 'calculator_interaction',
+          'calculator_action': action,
+          'calculator_value': value
+        });
+      };
     </script>
-
-</body>
+    <!-- End Google Analytics -->
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes" />
+    
+    <!-- Performance & SEO Optimization -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=yes" />
+    <meta name="theme-color" content="#7c3aed" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Xenra Nederland" />
+    
+    <!-- Additional SEO Enhancement -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Xenra Nederland" />
+    <meta name="msapplication-TileColor" content="#7c3aed" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <meta name="msapplication-tooltip" content="Xenra Nederland - Nalatenschap Regelen" />
+    <meta name="msapplication-starturl" content="/" />
+    
+    <!-- Security & Privacy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://replit.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https:" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    
+    <!-- Page Classification -->
+    <meta name="page-topic" content="Nalatenschapbeheer Nederland" />
+    <meta name="page-type" content="Homepage" />
+    <meta name="audience" content="Particulieren, ZZP, BV-houders" />
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    
+    <!-- Advanced SEO Meta Tags - Maximum Visibility -->
+    <title>Nalatenschap Regelen Nederland | Xenra - Nalatenschapbeheer voor Particulier, ZZP en BV</title>
+    <meta name="description" content="Nalatenschap regelen? Xenra Nederland regelt vooraf alles zodat uw nabestaanden zorgeloos afscheid nemen. Vraag gratis advies aan!" />
+    
+    <!-- Extended Keywords for Maximum Coverage -->
+    <meta name="keywords" content="nalatenschap regelen nederland, nalatenschapbeheer, nalatenschap particulier, zzp nalatenschap, bv nalatenschap, testamentair executeur ondersteuning, overlijden administratie, nabestaanden ontzorgen, erfenis regelen, testament maken, wilsbeschikking, estate planning nederland, nalatenschap afwikkeling, administratie na overlijden, nalatenschap verzekering, erfrechtadvies, boedel afwikkeling, nalatenschap planning, testamentair executeur hulp" />
+    
+    <!-- Business & Authority Tags -->
+    <meta name="author" content="Xenra Nederland" />
+    <meta name="publisher" content="Xenra Nederland - Specialist Nalatenschapbeheer" />
+    <meta name="copyright" content="© 2025 Xenra Nederland" />
+    <meta name="distribution" content="global" />
+    <meta name="rating" content="general" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Advanced Robots & Indexing -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1, max-image-preview:standard" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <meta name="bingbot" content="index, follow" />
+    
+    <!-- Canonical & Hreflang -->
+    <link rel="canonical" href="https://xenra.nl/" />
+    <link rel="alternate" hreflang="nl" href="https://xenra.nl/" />
+    <link rel="alternate" hreflang="nl-NL" href="https://xenra.nl/" />
+    <link rel="alternate" hreflang="x-default" href="https://xenra.nl/" />
+    
+    <!-- Geographic & Language Targeting -->
+    <meta name="geo.region" content="NL" />
+    <meta name="geo.placename" content="Nederland" />
+    <meta name="geo.position" content="52.3676;4.9041" />
+    <meta name="ICBM" content="52.3676, 4.9041" />
+    <meta name="language" content="Dutch" />
+    <meta name="content-language" content="nl" />
+    
+    <!-- Business Information -->
+    <meta name="classification" content="Nalatenschapbeheer, Juridische Dienstverlening" />
+    <meta name="category" content="Legal Services, Estate Planning, Administrative Support" />
+    <meta name="coverage" content="Nederland" />
+    <meta name="distribution" content="Nederland" />
+    <meta name="target" content="Particulieren, ZZP, BV-houders" />
+    
+    <!-- Contact & Local Business -->
+    <meta name="contact" content="085 08 06 142" />
+    <meta name="reply-to" content="info@xenra.nl" />
+    <meta name="owner" content="Xenra Nederland" />
+    
+    <!-- Advanced Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://xenra.nl/" />
+    <meta property="og:title" content="Nalatenschap Regelen Nederland | Xenra - Vanaf €14,95/maand" />
+    <meta property="og:description" content="Nalatenschap regelen? Xenra Nederland regelt vooraf alles zodat uw nabestaanden zorgeloos afscheid nemen. Vraag gratis advies aan!" />
+    <meta property="og:image" content="https://xenra.nl/logo-xenra-nederland.png" />
+    <meta property="og:image:secure_url" content="https://xenra.nl/logo-xenra-nederland.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Xenra Nederland - Nalatenschap Regelen" />
+    <meta property="og:site_name" content="Xenra Nederland" />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:locale:alternate" content="en_US" />
+    
+    <!-- Article/Business Specific -->
+    <meta property="article:author" content="Xenra Nederland" />
+    <meta property="article:publisher" content="https://xenra.nl" />
+    <meta property="business:contact_data:street_address" content="Nederland" />
+    <meta property="business:contact_data:locality" content="Nederland" />
+    <meta property="business:contact_data:region" content="Nederland" />
+    <meta property="business:contact_data:postal_code" content="" />
+    <meta property="business:contact_data:country_name" content="Nederland" />
+    <meta property="business:contact_data:phone_number" content="+31850806142" />
+    <meta property="business:contact_data:website" content="https://xenra.nl" />
+    
+    <!-- Advanced Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@xenra_nederland" />
+    <meta name="twitter:creator" content="@xenra_nederland" />
+    <meta name="twitter:url" content="https://xenra.nl/" />
+    <meta name="twitter:title" content="Nalatenschap Regelen Nederland | Xenra - Vanaf €14,95/maand" />
+    <meta name="twitter:description" content="Nalatenschap regelen? Xenra Nederland regelt vooraf alles zodat uw nabestaanden zorgeloos afscheid nemen. Vraag gratis advies aan!" />
+    <meta name="twitter:image" content="https://xenra.nl/logo-xenra-nederland.png" />
+    <meta name="twitter:image:alt" content="Xenra Nederland - Nalatenschap Regelen" />
+    <meta name="twitter:domain" content="xenra.nl" />
+    
+    <!-- Additional Social Platforms -->
+    <meta property="fb:app_id" content="xenra-nederland" />
+    <meta name="pinterest-rich-pin" content="true" />
+    <meta name="linkedin:owner" content="Xenra Nederland" />
+    
+    <!-- Enhanced Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Xenra Nederland",
+      "url": "https://xenra.nl",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://xenra.nl/logo-xenra-nederland.png",
+        "width": "300",
+        "height": "100"
+      },
+      "description": "Xenra Nederland is specialist in nalatenschapbeheer en administratieve ondersteuning. Wij helpen particulieren, ZZP'ers en BV-houders bij het vooraf regelen van hun nalatenschap voor rust en zekerheid van nabestaanden.",
+      "foundingDate": "2020",
+      "slogan": "Regel het goed voor de mensen van wie je houdt",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+31-85-080-6142",
+          "contactType": "customer service",
+          "areaServed": "NL",
+          "availableLanguage": ["Dutch"],
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "17:00"
+          }
+        }
+      ],
+      "sameAs": [
+        "https://xenra.nl"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "NL",
+        "addressLocality": "Nederland"
+      },
+      "serviceType": ["Nalatenschapbeheer", "Administratieve ondersteuning", "Testamentair executeur ondersteuning", "Erfenis regeling", "Testament opstelling", "Nalatenschap planning"],
+      "priceRange": "€14.95 - €29.95",
+      "paymentAccepted": ["Cash", "Credit Card", "Invoice", "Bank Transfer"],
+      "currenciesAccepted": "EUR",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Nederland"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Nalatenschapbeheer Pakketten",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Particulieren Pakket",
+              "description": "Nalatenschapbeheer voor particulieren"
+            }
+          },
+          {
+            "@type": "Offer", 
+            "itemOffered": {
+              "@type": "Service",
+              "name": "ZZP Pakket",
+              "description": "Nalatenschapbeheer voor ZZP'ers en Eenmanszaken"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service", 
+              "name": "BV Pakket",
+              "description": "Nalatenschapbeheer voor BV-houders"
+            }
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "150",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Tevreden Klant"
+          },
+          "reviewBody": "Uitstekende service bij het regelen van mijn nalatenschap."
+        }
+      ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://xenra.nl",
+      "name": "Xenra Nederland",
+      "alternateName": ["Xenra", "Xenra Nederland Nalatenschap"],
+      "description": "Nalatenschap regelen voor particulieren, ZZP'ers en BV-houders",
+      "keywords": "nalatenschap regelen, nalatenschapbeheer, erfenis, testament, estate planning",
+      "inLanguage": "nl-NL",
+      "isAccessibleForFree": true,
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://xenra.nl/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "mainEntity": {
+        "@type": "Organization",
+        "@id": "https://xenra.nl/#organization"
+      }
+    }
+    </script>
+    
+    <!-- Professional Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": "https://xenra.nl/#service",
+      "name": "Xenra Nederland Nalatenschapbeheer",
+      "url": "https://xenra.nl",
+      "description": "Specialist in nalatenschapbeheer en administratieve ondersteuning bij overlijden. Wij helpen particulieren, ZZP'ers en BV-houders bij het vooraf regelen van hun nalatenschap.",
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://xenra.nl/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Nederland"
+      },
+      "serviceType": "Nalatenschapbeheer",
+      "category": "Legal Services",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Nalatenschapbeheer Diensten",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Gratis Adviesgesprek",
+            "description": "Vrijblijvend gesprek over uw nalatenschapwensen",
+            "price": "0",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer", 
+            "name": "Particulieren Pakket",
+            "description": "Compleet nalatenschapbeheer voor particulieren",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "14.95",
+              "priceCurrency": "EUR",
+              "unitText": "per maand"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://xenra.nl/#localbusiness",
+      "name": "Xenra Nederland",
+      "image": "https://xenra.nl/logo-xenra-nederland.png",
+      "telephone": "+31-85-080-6142",
+      "email": "info@xenra.nl",
+      "url": "https://xenra.nl",
+      "priceRange": "€14.95-€29.95",
+      "paymentAccepted": ["Cash", "Credit Card", "Invoice", "Bank Transfer"],
+      "currenciesAccepted": "EUR",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "NL",
+        "addressLocality": "Nederland"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "52.3676",
+        "longitude": "4.9041"
+      },
+      "openingHours": "Mo-Fr 09:00-17:00",
+      "sameAs": [
+        "https://xenra.nl"
+      ]
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wat is een nalatenschap?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Een nalatenschap bestaat uit alle bezittingen en schulden die iemand nalaat bij overlijden. Dit omvat bankrekeningen, verzekeringen, bezittingen, maar ook verplichtingen en administratieve taken."
+          }
+        },
+        {
+          "@type": "Question", 
+          "name": "Waarom nalatenschap vooraf regelen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Door uw nalatenschap vooraf te regelen, voorkomt u dat uw nabestaanden in een emotionele periode complexe administratieve taken moeten uitvoeren. Het geeft rust en zekerheid voor iedereen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Voor wie is nalatenschapbeheer geschikt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Xenra Nederland helpt particulieren, ZZP'ers en BV-houders bij het regelen van hun nalatenschap. We hebben speciale pakketten voor elke doelgroep."
+          }
+        }
+      ]
+    }
+    </script>
+    <script type="module" crossorigin src="/assets/index-BXHA4iDq.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CtwWA5wO.css">
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GVSVHP4"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <div id="root"></div>
+    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
+    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
+  </body>
 </html>
