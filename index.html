@@ -1,505 +1,348 @@
 <!DOCTYPE html>
 <html lang="nl">
-  <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtag/js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5GVSVHP4');</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xenra Nederland - Nalatenschap Regelen</title>
+    <meta name="description" content="Regel uw nalatenschap vooraf zodat uw nabestaanden zorgeloos afscheid kunnen nemen. Xenra Nederland - nalatenschapbeheer voor particulier, ZZP en BV.">
     
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M3JCSZ0T9Y"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-M3JCSZ0T9Y');
-    </script>
-    
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <title>Nalatenschap Regelen Nederland | Xenra - Nalatenschapbeheer voor Particulier, ZZP en BV</title>
-    <meta name="description" content="Nalatenschap regelen? Xenra Nederland regelt vooraf alles zodat uw nabestaanden zorgeloos afscheid nemen. Vraag gratis advies aan!" />
-    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'xenra-purple': '#7c3aed',
-              'xenra-green': '#065f46',
-              'xenra-beige': '#fef7ed'
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'xenra-purple': '#7c3aed',
+                        'xenra-green': '#065f46',
+                        'xenra-beige': '#fef7ed'
+                    }
+                }
             }
-          }
         }
-      }
     </script>
-    
-    <style>
-      body { font-family: 'Inter', sans-serif; }
-      .hero-gradient { background: linear-gradient(135deg, #7c3aed 0%, #065f46 100%); }
-    </style>
-  </head>
-  
-  <body class="bg-white">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/gtm.ns.html?id=GTM-5GVSVHP4"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+</head>
+<body class="bg-white">
 
     <!-- Emergency Contact Banner -->
-    <div class="bg-red-600 text-white text-center py-2 px-4">
-      <span class="text-sm">Overleden melden - 085 08 06 142 (lokaal tarief)</span>
+    <div class="bg-red-600 text-white text-center py-2">
+        <span class="text-sm">Overleden melden - 085 08 06 142 (lokaal tarief)</span>
     </div>
 
     <!-- Header -->
     <header class="bg-xenra-purple text-white py-4">
-      <div class="container mx-auto px-4 flex justify-between items-center">
-        <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-            <span class="text-xenra-purple font-bold text-lg">X</span>
-          </div>
-          <h1 class="text-2xl font-bold">Xenra Nederland</h1>
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <span class="text-xenra-purple font-bold text-lg">X</span>
+                </div>
+                <h1 class="text-2xl font-bold">Xenra Nederland</h1>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-gray-200">Home</a>
+                <a href="#diensten" class="hover:text-gray-200">Diensten</a>
+                <a href="#pakketten" class="hover:text-gray-200">Pakketten</a>
+                <a href="#contact" class="hover:text-gray-200">Contact</a>
+            </nav>
         </div>
-        <nav class="hidden md:flex space-x-6">
-          <a href="#home" class="hover:text-gray-200">Home</a>
-          <a href="#services" class="hover:text-gray-200">Diensten</a>
-          <a href="#pricing" class="hover:text-gray-200">Pakketten</a>
-          <a href="#calculator" class="hover:text-gray-200">Calculator</a>
-          <a href="#faq" class="hover:text-gray-200">FAQ</a>
-          <a href="#contact" class="hover:text-gray-200">Contact</a>
-        </nav>
-      </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-gradient text-white py-20">
-      <div class="container mx-auto px-4 text-center">
-        <h1 class="text-4xl md:text-6xl font-bold mb-6">
-          Regel uw nalatenschap vooraf
-        </h1>
-        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-          Zodat uw nabestaanden zorgeloos afscheid kunnen nemen
-        </p>
-        <div class="flex flex-col md:flex-row gap-4 justify-center">
-          <button onclick="openContactModal()" class="bg-white text-xenra-purple px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
-            Gratis advies aanvragen
-          </button>
-          <button onclick="openRegistrationModal()" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-xenra-purple transition">
-            Direct afsluiten
-          </button>
+    <section id="home" class="bg-gradient-to-br from-xenra-purple to-xenra-green text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">Regel uw nalatenschap vooraf</h1>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">
+                Zodat uw nabestaanden zorgeloos afscheid kunnen nemen. 
+                Wij regelen alle administratie en formaliteiten.
+            </p>
+            <div class="space-x-4">
+                <button onclick="showContactForm()" class="bg-white text-xenra-purple px-8 py-3 rounded-lg font-semibold hover:bg-gray-100">
+                    Gratis advies
+                </button>
+                <button onclick="showPackageForm()" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-xenra-purple">
+                    Direct afsluiten
+                </button>
+            </div>
         </div>
-      </div>
     </section>
 
     <!-- Target Groups -->
     <section class="py-16 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">Voor wie regelen wij de nalatenschap?</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-            <div class="w-16 h-16 bg-xenra-purple rounded-full flex items-center justify-center mx-auto mb-4">
-              <span class="text-white text-2xl">👤</span>
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Voor wie regelen wij?</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="w-16 h-16 bg-xenra-purple rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl">👤</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Particulieren</h3>
+                    <p class="text-gray-600 mb-6">Voor iedereen die zijn nabestaanden wil ontzorgen bij het regelen van de nalatenschap.</p>
+                    <div class="text-2xl font-bold text-xenra-green">€19,95</div>
+                    <div class="text-sm text-gray-500">per maand</div>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="w-16 h-16 bg-xenra-purple rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl">💼</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">ZZP'ers</h3>
+                    <p class="text-gray-600 mb-6">Speciaal pakket voor zelfstandig ondernemers met extra aandacht voor bedrijfsafwikkeling.</p>
+                    <div class="text-2xl font-bold text-xenra-green">€24,95</div>
+                    <div class="text-sm text-gray-500">per maand</div>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="w-16 h-16 bg-xenra-purple rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl">🏢</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">BV/NV houders</h3>
+                    <p class="text-gray-600 mb-6">Voor ondernemers met rechtspersoon. Inclusief bedrijfsoverdracht en aandelenafwikkeling.</p>
+                    <div class="text-2xl font-bold text-xenra-green">€29,95</div>
+                    <div class="text-sm text-gray-500">per maand</div>
+                </div>
             </div>
-            <h3 class="text-xl font-bold mb-3">Particulieren</h3>
-            <p class="text-gray-600 mb-4">Voor iedereen die zijn nabestaanden wil ontzorgen</p>
-            <div class="text-xenra-green font-semibold">Vanaf €19,95/maand</div>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-            <div class="w-16 h-16 bg-xenra-purple rounded-full flex items-center justify-center mx-auto mb-4">
-              <span class="text-white text-2xl">💼</span>
-            </div>
-            <h3 class="text-xl font-bold mb-3">ZZP'ers</h3>
-            <p class="text-gray-600 mb-4">Speciaal voor zelfstandig ondernemers</p>
-            <div class="text-xenra-green font-semibold">Vanaf €24,95/maand</div>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-            <div class="w-16 h-16 bg-xenra-purple rounded-full flex items-center justify-center mx-auto mb-4">
-              <span class="text-white text-2xl">🏢</span>
-            </div>
-            <h3 class="text-xl font-bold mb-3">BV/NV houders</h3>
-            <p class="text-gray-600 mb-4">Voor ondernemers met een rechtspersoon</p>
-            <div class="text-xenra-green font-semibold">Vanaf €29,95/maand</div>
-          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Premium Calculator -->
-    <section id="calculator" class="py-16">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">Bereken uw maandelijkse bijdrage</h2>
-        <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-          <div class="space-y-6">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">Uw situatie</label>
-              <select id="packageType" class="w-full p-3 border border-gray-300 rounded-lg">
-                <option value="particulier">Particulier</option>
-                <option value="zzp">ZZP'er</option>
-                <option value="bv">BV/NV houder</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">Uw leeftijd</label>
-              <input type="number" id="age" min="18" max="100" value="45" class="w-full p-3 border border-gray-300 rounded-lg">
-            </div>
-            <div>
-              <label class="flex items-center space-x-2">
-                <input type="checkbox" id="loyaltyBonus" class="w-4 h-4">
-                <span class="text-sm">Xenra-tegoed meenemen</span>
-              </label>
-            </div>
-            <div>
-              <label class="flex items-center space-x-2">
-                <input type="checkbox" id="digitalVault" class="w-4 h-4">
-                <span class="text-sm">Digitale kluis toevoegen</span>
-              </label>
-            </div>
-            <div class="bg-xenra-beige p-4 rounded-lg">
-              <div class="text-center">
-                <div class="text-3xl font-bold text-xenra-green" id="calculatedPremium">€19,95</div>
-                <div class="text-sm text-gray-600">per maand</div>
-              </div>
-            </div>
-            <button onclick="openRegistrationFromCalculator()" class="w-full bg-xenra-purple text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition">
-              Nu afsluiten
-            </button>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- Services -->
-    <section id="services" class="py-16 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">Wat regelen wij voor u?</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="text-xl font-bold mb-3">Administratie na overlijden</h3>
-            <p class="text-gray-600">Wij nemen alle administratieve werkzaamheden uit handen van uw nabestaanden.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="text-xl font-bold mb-3">Testament ondersteuning</h3>
-            <p class="text-gray-600">Hulp bij het opstellen en bijwerken van uw testament.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="text-xl font-bold mb-3">Boedel afwikkeling</h3>
-            <p class="text-gray-600">Professionele begeleiding bij de afwikkeling van uw nalatenschap.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="text-xl font-bold mb-3">Digitale kluis</h3>
-            <p class="text-gray-600">Veilige opslag van al uw belangrijke documenten.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="text-xl font-bold mb-3">24/7 bereikbaarheid</h3>
-            <p class="text-gray-600">Ook buiten kantooruren zijn wij bereikbaar voor noodgevallen.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="text-xl font-bold mb-3">Persoonlijke begeleiding</h3>
-            <p class="text-gray-600">Een vast contactpersoon die uw situatie kent.</p>
-          </div>
+    <section id="diensten" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Wat regelen wij voor u?</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-xenra-beige rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-xenra-green text-2xl">📋</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Administratie afhandeling</h3>
+                    <p class="text-gray-600">Alle papierwerk en formaliteiten na overlijden</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-xenra-beige rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-xenra-green text-2xl">⚖️</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Testament ondersteuning</h3>
+                    <p class="text-gray-600">Hulp bij opstellen en actualiseren van testamenten</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-xenra-beige rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-xenra-green text-2xl">💰</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Boedel afwikkeling</h3>
+                    <p class="text-gray-600">Professionele begeleiding bij nalatenschap</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-xenra-beige rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-xenra-green text-2xl">🔒</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Digitale kluis</h3>
+                    <p class="text-gray-600">Veilige opslag van belangrijke documenten</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-xenra-beige rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-xenra-green text-2xl">📞</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">24/7 bereikbaarheid</h3>
+                    <p class="text-gray-600">Ook buiten kantooruren voor noodgevallen</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-xenra-beige rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-xenra-green text-2xl">👥</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Persoonlijke begeleiding</h3>
+                    <p class="text-gray-600">Vaste contactpersoon die uw situatie kent</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="py-16">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">Veelgestelde vragen</h2>
-        <div class="max-w-3xl mx-auto space-y-4">
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="font-bold mb-2">Wat is een nalatenschap?</h3>
-            <p class="text-gray-600">Een nalatenschap omvat alle bezittingen, schulden en rechten die iemand achterlaat na overlijden. Wij regelen de administratieve afwikkeling hiervan.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="font-bold mb-2">Hoe lang duurt de afwikkeling?</h3>
-            <p class="text-gray-600">Gemiddeld 1-2 jaar, afhankelijk van de complexiteit van de nalatenschap.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="font-bold mb-2">Wat kost jullie service?</h3>
-            <p class="text-gray-600">Onze pakketten starten vanaf €19,95 per maand voor particulieren.</p>
-          </div>
+    <!-- Premium Calculator -->
+    <section id="pakketten" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Bereken uw maandelijkse bijdrage</h2>
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Uw situatie</label>
+                        <select id="packageType" onchange="calculatePremium()" class="w-full p-3 border rounded-lg">
+                            <option value="particulier">Particulier (€19,95)</option>
+                            <option value="zzp">ZZP'er (€24,95)</option>
+                            <option value="bv">BV/NV houder (€29,95)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Uw leeftijd</label>
+                        <input type="number" id="age" value="45" min="18" max="100" onchange="calculatePremium()" class="w-full p-3 border rounded-lg">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" id="loyaltyBonus" onchange="calculatePremium()" class="mr-2">
+                            <span>Xenra-tegoed toevoegen (+€5,00)</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" id="digitalVault" onchange="calculatePremium()" class="mr-2">
+                            <span>Digitale kluis toevoegen (+€2,50)</span>
+                        </label>
+                    </div>
+                    <div class="bg-xenra-beige p-6 rounded-lg text-center">
+                        <div id="totalPremium" class="text-3xl font-bold text-xenra-green">€19,95</div>
+                        <div class="text-sm text-gray-600">per maand</div>
+                    </div>
+                    <button onclick="showPackageForm()" class="w-full bg-xenra-purple text-white py-3 rounded-lg font-semibold hover:bg-purple-700">
+                        Nu direct afsluiten
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
     <!-- Contact -->
     <section id="contact" class="py-16 bg-xenra-purple text-white">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-8">Contact</h2>
-        <div class="max-w-2xl mx-auto">
-          <p class="mb-6">Heeft u vragen? Neem contact met ons op!</p>
-          <div class="space-y-2 mb-8">
-            <p>📞 085 08 06 142 (lokaal tarief)</p>
-            <p>✉️ info@xenra.nl</p>
-          </div>
-          <button onclick="openContactModal()" class="bg-white text-xenra-purple px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
-            Contact formulier
-          </button>
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8">Contact opnemen?</h2>
+            <div class="max-w-2xl mx-auto mb-8">
+                <p class="mb-6">Heeft u vragen over onze diensten? Neem gerust contact met ons op!</p>
+                <div class="space-y-2 mb-8">
+                    <p class="text-lg">📞 <strong>085 08 06 142</strong> (lokaal tarief)</p>
+                    <p class="text-lg">✉️ <strong>info@xenra.nl</strong></p>
+                    <p class="text-sm">Bereikbaar ma-vr 09:00-17:00</p>
+                </div>
+                <button onclick="showContactForm()" class="bg-white text-xenra-purple px-8 py-3 rounded-lg font-semibold hover:bg-gray-100">
+                    Contact formulier
+                </button>
+            </div>
         </div>
-      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
-      <div class="container mx-auto px-4 text-center">
-        <p>&copy; 2025 Xenra Nederland. Alle rechten voorbehouden.</p>
-      </div>
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Xenra Nederland. Alle rechten voorbehouden.</p>
+            <p class="text-sm text-gray-400 mt-2">Nalatenschapbeheer en administratieve ondersteuning</p>
+        </div>
     </footer>
 
     <!-- Contact Modal -->
-    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
-      <div class="flex items-center justify-center min-h-screen p-4">
+    <div id="contactModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-lg p-6 w-full max-w-md">
-          <h3 class="text-xl font-bold mb-4">Contact formulier</h3>
-          <form id="contactForm">
-            <div class="space-y-4">
-              <input type="text" id="contactName" placeholder="Uw naam" required class="w-full p-3 border border-gray-300 rounded-lg">
-              <input type="email" id="contactEmail" placeholder="Uw email" required class="w-full p-3 border border-gray-300 rounded-lg">
-              <input type="tel" id="contactPhone" placeholder="Uw telefoonnummer" class="w-full p-3 border border-gray-300 rounded-lg">
-              <select id="contactInquiryType" class="w-full p-3 border border-gray-300 rounded-lg">
-                <option value="algemene-informatie">Algemene informatie</option>
-                <option value="gratis-telefonisch-intake">Gratis telefonisch intake</option>
-                <option value="aanmelden-als-klant">Aanmelden als klant</option>
-                <option value="administratieve-vraag">Administratieve vraag</option>
-              </select>
-              <textarea id="contactMessage" placeholder="Uw bericht" required rows="4" class="w-full p-3 border border-gray-300 rounded-lg"></textarea>
-            </div>
-            <div class="flex space-x-4 mt-6">
-              <button type="button" onclick="closeContactModal()" class="flex-1 border border-gray-300 text-gray-700 py-2 rounded-lg">Annuleren</button>
-              <button type="submit" class="flex-1 bg-xenra-purple text-white py-2 rounded-lg hover:bg-purple-700">Versturen</button>
-            </div>
-          </form>
+            <h3 class="text-xl font-bold mb-4">Contact formulier</h3>
+            <form action="https://formspree.io/f/mwpkynol" method="POST" class="space-y-4">
+                <input type="text" name="name" placeholder="Uw naam *" required class="w-full p-3 border rounded-lg">
+                <input type="email" name="email" placeholder="Uw email *" required class="w-full p-3 border rounded-lg">
+                <input type="tel" name="phone" placeholder="Uw telefoonnummer" class="w-full p-3 border rounded-lg">
+                <select name="inquiry_type" class="w-full p-3 border rounded-lg">
+                    <option value="algemene-informatie">Algemene informatie</option>
+                    <option value="gratis-telefonisch-intake">Gratis telefonisch intake</option>
+                    <option value="aanmelden-als-klant">Aanmelden als klant</option>
+                    <option value="administratieve-vraag">Administratieve vraag</option>
+                </select>
+                <textarea name="message" placeholder="Uw bericht *" required rows="4" class="w-full p-3 border rounded-lg"></textarea>
+                <input type="hidden" name="_subject" value="Nieuw contact via Xenra website">
+                <input type="hidden" name="_replyto" value="">
+                <div class="flex space-x-4">
+                    <button type="button" onclick="hideContactForm()" class="flex-1 border py-2 rounded-lg">Annuleren</button>
+                    <button type="submit" class="flex-1 bg-xenra-purple text-white py-2 rounded-lg hover:bg-purple-700">Versturen</button>
+                </div>
+            </form>
         </div>
-      </div>
     </div>
 
-    <!-- Registration Modal -->
-    <div id="registrationModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
-      <div class="flex items-center justify-center min-h-screen p-4">
+    <!-- Package Modal -->
+    <div id="packageModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-lg p-6 w-full max-w-lg max-h-screen overflow-y-auto">
-          <h3 class="text-xl font-bold mb-4">Pakket aanmelding</h3>
-          <form id="registrationForm">
-            <div class="space-y-4">
-              <input type="text" id="regName" placeholder="Volledige naam" required class="w-full p-3 border border-gray-300 rounded-lg">
-              <input type="email" id="regEmail" placeholder="Email adres" required class="w-full p-3 border border-gray-300 rounded-lg">
-              <input type="tel" id="regPhone" placeholder="Telefoonnummer" required class="w-full p-3 border border-gray-300 rounded-lg">
-              <input type="text" id="regAddress" placeholder="Adres" required class="w-full p-3 border border-gray-300 rounded-lg">
-              <input type="text" id="regPostalCode" placeholder="Postcode (1234AB)" required class="w-full p-3 border border-gray-300 rounded-lg">
-              <input type="text" id="regCity" placeholder="Woonplaats" required class="w-full p-3 border border-gray-300 rounded-lg">
-              <input type="number" id="regAge" placeholder="Leeftijd" min="18" max="100" required class="w-full p-3 border border-gray-300 rounded-lg">
-              
-              <select id="regPackageType" class="w-full p-3 border border-gray-300 rounded-lg" required>
-                <option value="">Kies uw pakket</option>
-                <option value="particulier">Particulier (€19,95/maand)</option>
-                <option value="zzp">ZZP'er (€24,95/maand)</option>
-                <option value="bv">BV/NV houder (€29,95/maand)</option>
-              </select>
-              
-              <div class="space-y-2">
-                <label class="flex items-center space-x-2">
-                  <input type="checkbox" id="regLoyaltyBonus" class="w-4 h-4">
-                  <span class="text-sm">Xenra-tegoed toevoegen</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                  <input type="checkbox" id="regDigitalVault" class="w-4 h-4">
-                  <span class="text-sm">Digitale kluis toevoegen</span>
-                </label>
-              </div>
-              
-              <select id="regPaymentMethod" class="w-full p-3 border border-gray-300 rounded-lg" required>
-                <option value="">Betaalmethode</option>
-                <option value="incasso">Automatische incasso</option>
-                <option value="factuur">Factuur per email</option>
-              </select>
-              
-              <input type="date" id="regStartDate" required class="w-full p-3 border border-gray-300 rounded-lg">
-            </div>
-            <div class="flex space-x-4 mt-6">
-              <button type="button" onclick="closeRegistrationModal()" class="flex-1 border border-gray-300 text-gray-700 py-2 rounded-lg">Annuleren</button>
-              <button type="submit" class="flex-1 bg-xenra-purple text-white py-2 rounded-lg hover:bg-purple-700">Aanmelden</button>
-            </div>
-          </form>
+            <h3 class="text-xl font-bold mb-4">Pakket aanmelding</h3>
+            <form action="https://formspree.io/f/mwpkynol" method="POST" class="space-y-4">
+                <input type="text" name="name" placeholder="Volledige naam *" required class="w-full p-3 border rounded-lg">
+                <input type="email" name="email" placeholder="Email adres *" required class="w-full p-3 border rounded-lg">
+                <input type="tel" name="phone" placeholder="Telefoonnummer *" required class="w-full p-3 border rounded-lg">
+                <input type="text" name="address" placeholder="Adres *" required class="w-full p-3 border rounded-lg">
+                <input type="text" name="postal_code" placeholder="Postcode (1234AB) *" required class="w-full p-3 border rounded-lg">
+                <input type="text" name="city" placeholder="Woonplaats *" required class="w-full p-3 border rounded-lg">
+                <input type="number" name="age" placeholder="Leeftijd *" min="18" max="100" required class="w-full p-3 border rounded-lg">
+                
+                <select name="package_type" required class="w-full p-3 border rounded-lg">
+                    <option value="">Kies uw pakket *</option>
+                    <option value="particulier">Particulier (€19,95/maand)</option>
+                    <option value="zzp">ZZP'er (€24,95/maand)</option>
+                    <option value="bv">BV/NV houder (€29,95/maand)</option>
+                </select>
+                
+                <div class="space-y-2">
+                    <label class="flex items-center">
+                        <input type="checkbox" name="loyalty_bonus" value="ja" class="mr-2">
+                        <span>Xenra-tegoed toevoegen (+€5,00)</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" name="digital_vault" value="ja" class="mr-2">
+                        <span>Digitale kluis toevoegen (+€2,50)</span>
+                    </label>
+                </div>
+                
+                <select name="payment_method" required class="w-full p-3 border rounded-lg">
+                    <option value="">Betaalmethode *</option>
+                    <option value="incasso">Automatische incasso</option>
+                    <option value="factuur">Factuur per email</option>
+                </select>
+                
+                <input type="date" name="start_date" required class="w-full p-3 border rounded-lg">
+                
+                <input type="hidden" name="_subject" value="Nieuwe pakket aanmelding via Xenra website">
+                <input type="hidden" name="form_type" value="pakket_aanmelding">
+                
+                <div class="flex space-x-4">
+                    <button type="button" onclick="hidePackageForm()" class="flex-1 border py-2 rounded-lg">Annuleren</button>
+                    <button type="submit" class="flex-1 bg-xenra-purple text-white py-2 rounded-lg hover:bg-purple-700">Aanmelden</button>
+                </div>
+            </form>
         </div>
-      </div>
-    </div>
-
-    <!-- Success Modal -->
-    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
-      <div class="flex items-center justify-center min-h-screen p-4">
-        <div class="bg-white rounded-lg p-6 w-full max-w-md text-center">
-          <div class="text-green-500 text-5xl mb-4">✓</div>
-          <h3 class="text-xl font-bold mb-2">Bedankt!</h3>
-          <p id="successMessage" class="text-gray-600 mb-4"></p>
-          <button onclick="closeSuccessModal()" class="bg-xenra-purple text-white px-6 py-2 rounded-lg">OK</button>
-        </div>
-      </div>
     </div>
 
     <script>
-      // Calculator functionality
-      function updateCalculator() {
-        const packageType = document.getElementById('packageType').value;
-        const age = parseInt(document.getElementById('age').value) || 45;
-        const loyaltyBonus = document.getElementById('loyaltyBonus').checked;
-        const digitalVault = document.getElementById('digitalVault').checked;
+        // Calculator
+        function calculatePremium() {
+            const packageType = document.getElementById('packageType').value;
+            const loyaltyBonus = document.getElementById('loyaltyBonus').checked;
+            const digitalVault = document.getElementById('digitalVault').checked;
+            
+            let basePrice = 19.95;
+            if (packageType === 'zzp') basePrice = 24.95;
+            if (packageType === 'bv') basePrice = 29.95;
+            
+            let total = basePrice;
+            if (loyaltyBonus) total += 5.00;
+            if (digitalVault) total += 2.50;
+            
+            document.getElementById('totalPremium').textContent = '€' + total.toFixed(2);
+        }
         
-        let basePrice = 19.95;
-        if (packageType === 'zzp') basePrice = 24.95;
-        if (packageType === 'bv') basePrice = 29.95;
+        // Modals
+        function showContactForm() {
+            document.getElementById('contactModal').classList.remove('hidden');
+        }
         
-        let totalPrice = basePrice;
-        if (loyaltyBonus) totalPrice += 5.00;
-        if (digitalVault) totalPrice += 2.50;
+        function hideContactForm() {
+            document.getElementById('contactModal').classList.add('hidden');
+        }
         
-        document.getElementById('calculatedPremium').textContent = `€${totalPrice.toFixed(2)}`;
+        function showPackageForm() {
+            document.getElementById('packageModal').classList.remove('hidden');
+        }
         
-        gtag('event', 'calculator_interaction', {
-          'event_category': 'tools',
-          'event_label': 'calculate',
-          'value': totalPrice
+        function hidePackageForm() {
+            document.getElementById('packageModal').classList.add('hidden');
+        }
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
         });
-      }
-      
-      // Event listeners for calculator
-      document.getElementById('packageType').addEventListener('change', updateCalculator);
-      document.getElementById('age').addEventListener('input', updateCalculator);
-      document.getElementById('loyaltyBonus').addEventListener('change', updateCalculator);
-      document.getElementById('digitalVault').addEventListener('change', updateCalculator);
-      
-      // Modal functions
-      function openContactModal() {
-        document.getElementById('contactModal').classList.remove('hidden');
-      }
-      
-      function closeContactModal() {
-        document.getElementById('contactModal').classList.add('hidden');
-      }
-      
-      function openRegistrationModal() {
-        document.getElementById('registrationModal').classList.remove('hidden');
-      }
-      
-      function openRegistrationFromCalculator() {
-        const packageType = document.getElementById('packageType').value;
-        openRegistrationModal();
-        document.getElementById('regPackageType').value = packageType;
-      }
-      
-      function closeRegistrationModal() {
-        document.getElementById('registrationModal').classList.add('hidden');
-      }
-      
-      function closeSuccessModal() {
-        document.getElementById('successModal').classList.add('hidden');
-      }
-      
-      function showSuccess(message) {
-        document.getElementById('successMessage').textContent = message;
-        document.getElementById('successModal').classList.remove('hidden');
-      }
-      
-      // Mock form submissions (no API calls)
-      document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
         
-        const formData = {
-          name: document.getElementById('contactName').value,
-          email: document.getElementById('contactEmail').value,
-          phone: document.getElementById('contactPhone').value,
-          inquiryType: document.getElementById('contactInquiryType').value,
-          message: document.getElementById('contactMessage').value
-        };
-        
-        console.log('CONTACTFORMULIER INZENDING:', formData);
-        console.log('---');
-        console.log('EMAIL NAAR: info@xenra.nl');
-        console.log('ONDERWERP: Contactformulier - ' + formData.name);
-        console.log('INHOUD:');
-        console.log('Naam: ' + formData.name);
-        console.log('Email: ' + formData.email);
-        console.log('Telefoon: ' + formData.phone);
-        console.log('Type: ' + formData.inquiryType);
-        console.log('Bericht: ' + formData.message);
-        console.log('---');
-        
-        closeContactModal();
-        showSuccess('Bedankt voor uw bericht. Wij nemen spoedig contact met u op.');
-        document.getElementById('contactForm').reset();
-        
-        gtag('event', 'contact_form_submit', {
-          'event_category': 'engagement',
-          'event_label': formData.inquiryType
-        });
-      });
-      
-      // Registration form submission
-      document.getElementById('registrationForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const formData = {
-          name: document.getElementById('regName').value,
-          email: document.getElementById('regEmail').value,
-          phone: document.getElementById('regPhone').value,
-          address: document.getElementById('regAddress').value,
-          postalCode: document.getElementById('regPostalCode').value,
-          city: document.getElementById('regCity').value,
-          age: document.getElementById('regAge').value,
-          packageType: document.getElementById('regPackageType').value,
-          loyaltyBonus: document.getElementById('regLoyaltyBonus').checked,
-          digitalVault: document.getElementById('regDigitalVault').checked,
-          paymentMethod: document.getElementById('regPaymentMethod').value,
-          startDate: document.getElementById('regStartDate').value
-        };
-        
-        // Calculate price
-        let monthlyRate = 19.95;
-        if (formData.packageType === 'zzp') monthlyRate = 24.95;
-        if (formData.packageType === 'bv') monthlyRate = 29.95;
-        if (formData.loyaltyBonus) monthlyRate += 5.00;
-        if (formData.digitalVault) monthlyRate += 2.50;
-        
-        console.log('PAKKET AANMELDING:', formData);
-        console.log('---');
-        console.log('EMAIL NAAR: info@xenra.nl');
-        console.log('ONDERWERP: Nieuwe aanmelding - ' + formData.name + ' (' + formData.packageType + ')');
-        console.log('INHOUD:');
-        console.log('Naam: ' + formData.name);
-        console.log('Email: ' + formData.email);
-        console.log('Telefoon: ' + formData.phone);
-        console.log('Adres: ' + formData.address + ', ' + formData.postalCode + ' ' + formData.city);
-        console.log('Leeftijd: ' + formData.age);
-        console.log('Pakket: ' + formData.packageType);
-        console.log('Maandelijkse kosten: €' + monthlyRate.toFixed(2));
-        console.log('Xenra-tegoed: ' + (formData.loyaltyBonus ? 'Ja' : 'Nee'));
-        console.log('Digitale kluis: ' + (formData.digitalVault ? 'Ja' : 'Nee'));
-        console.log('Betaalmethode: ' + formData.paymentMethod);
-        console.log('Startdatum: ' + formData.startDate);
-        console.log('---');
-        
-        closeRegistrationModal();
-        showSuccess(`Bedankt ${formData.name}! Uw aanmelding voor het ${formData.packageType} pakket is ontvangen. Wij nemen contact met u op.`);
-        document.getElementById('registrationForm').reset();
-        
-        gtag('event', 'package_registration', {
-          'event_category': 'conversion',
-          'event_label': formData.packageType,
-          'value': monthlyRate
-        });
-      });
-      
-      // Smooth scrolling
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-          }
-        });
-      });
+        // Initialize calculator
+        calculatePremium();
     </script>
-  </body>
+
+</body>
 </html>
