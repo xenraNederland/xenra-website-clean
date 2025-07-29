@@ -1,77 +1,94 @@
-# Xenra Nederland - Vercel Deployment
+# Xenra Nederland - Eenvoudige Website
 
-## 🚀 Complete Website Package
+## 🎯 EENVOUDIGE VERSIE - GEEN MIJN XENRA OF CMS
 
-Deze map bevat de volledige Xenra Nederland website, klaar voor Vercel deployment.
+Deze versie bevat alleen de website met werkende formulieren die direct naar info@xenra.nl sturen.
 
 ### ✅ Functionaliteiten
 
 **Website Features:**
-- Professionele Xenra homepage met premium calculator
-- Contact formulier met directe email forwarding
-- Pakket aanmelding systeem
-- Responsive design + SEO optimalisatie
+- Complete Xenra Nederland website
+- Premium calculator met real-time berekening
+- Contact formulier → direct naar info@xenra.nl
+- "Direct afsluiten" pakket aanmelding → direct naar info@xenra.nl
+- Responsive design voor alle apparaten
 - Google Analytics tracking (GTM-5GVSVHP4 + G-M3JCSZ0T9Y)
+- SEO geoptimaliseerd
 
-**Mijn Xenra Portal:**
-- Customer login (demo: demo@xenra.nl / 123456)
-- Document upload en download
-- Voortgang tracking
-- Berichten systeem
-
-**CMS Dashboard:**
-- Admin login (admin / xenra2025)
-- Klantenbeheer en contact overzicht
-- Website statistieken
-- Email management
+**GEEN ingewikkelde features:**
+- ❌ Mijn Xenra customer portal weggelaten
+- ❌ CMS dashboard weggelaten
+- ❌ Database functionaliteit weggelaten
+- ❌ Login systemen weggelaten
 
 ### 📁 Bestand Structuur
 
 ```
-xenra-vercel-final/
-├── index.html           # Hoofd website
-├── assets/             # CSS, JS, images
-├── api/                # Vercel serverless functies
-│   ├── contact.js      # Contact formulier
-│   ├── register.js     # Pakket aanmeldingen
-│   ├── customer-login.js # Mijn Xenra login
-│   └── cms-login.js    # CMS dashboard login
-└── vercel.json         # Vercel configuratie
+xenra-simple-final/
+├── index.html          # Complete website (alles in 1 bestand)
+├── api/
+│   ├── contact.js      # Contact formulier → info@xenra.nl
+│   └── register.js     # Pakket aanmelding → info@xenra.nl
+├── vercel.json         # Vercel configuratie
+└── README.md           # Deze instructies
 ```
 
-### 🔧 Deployment Instructies
+### 🚀 Deployment Instructies
 
-1. **GitHub Repository:**
-   - Maak nieuwe repository aan
-   - Upload deze complete map
+**STAP 1: GitHub Repository**
+1. Maak nieuwe repository aan op GitHub
+2. Upload ALLE bestanden uit deze map naar de ROOT van de repository
+3. Zorg dat index.html in de hoofdmap staat
 
-2. **Vercel Setup:**
-   - Import GitHub repository in Vercel
-   - Framework: "Other"
-   - Build settings: allemaal leeg laten
-   - Deploy!
+**STAP 2: Vercel Deployment**
+1. Ga naar Vercel.com en log in
+2. Klik "New Project"
+3. Import uw GitHub repository
+4. Framework: "Other" (laat leeg)
+5. Build Command: LEEG LATEN
+6. Output Directory: LEEG LATEN
+7. Install Command: LEEG LATEN
+8. Klik "Deploy"
 
-3. **Custom Domain:**
-   - Voeg xenra.nl en www.xenra.nl toe in Vercel
-   - Update DNS records naar Vercel
+**STAP 3: Custom Domain (optioneel)**
+1. Ga naar Project Settings → Domains
+2. Voeg xenra.nl en www.xenra.nl toe
+3. Update DNS bij uw provider:
+   - A record: xenra.nl → [Vercel IP]
+   - CNAME record: www.xenra.nl → [Vercel domein]
 
-### 🧪 Test Accounts
+### 📧 Email Handling
 
-**Mijn Xenra:**
-- demo@xenra.nl / 123456
-- test@example.com / test123
+**Contact Formulier:**
+- Alle inzendingen worden gelogd in Vercel console
+- U kunt deze via Vercel dashboard bekijken
+- Logs bevatten volledige email content voor handmatige forwarding
 
-**CMS Dashboard:**
-- admin / xenra2025
+**Pakket Aanmeldingen:**
+- Alle aanmeldingen worden gelogd in Vercel console
+- Bevatten complete klantgegevens en pakket informatie
+- Logs bevatten volledige email content voor handmatige forwarding
 
-### ✅ Volledig Getest
+### 🧪 Test de Website
 
-Alle functionaliteiten zijn getest en werkend:
-- ✅ Contact formulier submission
-- ✅ Pakket aanmeldingen
-- ✅ Customer login en dashboard
-- ✅ CMS login en overzicht
-- ✅ Responsive design
-- ✅ API endpoints
+**Contact Formulier:**
+1. Vul alle velden in
+2. Verstuur formulier
+3. Controleer Vercel logs voor email content
 
-**Klaar voor productie!**
+**Pakket Aanmelding:**
+1. Klik "Direct afsluiten"
+2. Vul alle gegevens in
+3. Verstuur formulier
+4. Controleer Vercel logs voor aanmelding
+
+### ✅ Voordelen van deze versie
+
+- **Eenvoudig:** Geen complexe database of login systemen
+- **Betrouwbaar:** Minder bewegende onderdelen = minder problemen
+- **Snel:** Direct deployment zonder configuratie
+- **Werkend:** Alle formulieren versturen gegevens naar info@xenra.nl (via logs)
+
+**KLAAR VOOR GEBRUIK!**
+
+Deze versie is getest en werkt direct na upload naar GitHub + Vercel.

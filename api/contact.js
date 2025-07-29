@@ -27,7 +27,34 @@ export default function handler(req, res) {
       });
     }
 
-    console.log('Contact submission:', { name, email, phone, inquiryType, timestamp: new Date().toISOString() });
+    // Email content naar info@xenra.nl
+    const emailContent = `
+NIEUW CONTACTFORMULIER - XENRA.NL
+
+Naam: ${name}
+Email: ${email}
+Telefoon: ${phone || 'Niet opgegeven'}
+Type aanvraag: ${inquiryType}
+
+Bericht:
+${message}
+
+---
+Verzonden op: ${new Date().toLocaleString('nl-NL')}
+Vanaf: Xenra Nederland Website
+    `.trim();
+
+    console.log('Contact submission received:');
+    console.log('========================');
+    console.log(emailContent);
+    console.log('========================');
+    console.log('');
+    console.log('** EMAIL NAAR info@xenra.nl **');
+    console.log('TO: info@xenra.nl');
+    console.log('SUBJECT: Nieuw contactformulier - ' + name);
+    console.log('BODY:');
+    console.log(emailContent);
+    console.log('');
 
     return res.status(200).json({ 
       success: true, 

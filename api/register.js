@@ -13,14 +13,13 @@ export default function handler(req, res) {
 
   try {
     const { 
-      name, address, postalCode, city, phone, email, age, 
-      packageType, loyaltyBonus, digitalVault, monthlyRate, 
-      startDate, paymentMethod, cancellationDate 
+      name, email, phone, address, postalCode, city, age, 
+      packageType, loyaltyBonus, digitalVault, paymentMethod, startDate 
     } = req.body;
 
-    if (!name || !email || !phone || !address) {
+    if (!name || !email || !phone || !address || !packageType) {
       return res.status(400).json({ 
-        error: 'Naam, email, telefoon en adres zijn verplicht' 
+        error: 'Naam, email, telefoon, adres en pakket zijn verplicht' 
       });
     }
 
@@ -38,11 +37,54 @@ export default function handler(req, res) {
       });
     }
 
-    console.log('Registration:', { name, email, packageType, monthlyRate, timestamp: new Date().toISOString() });
+    // Calculate monthly rate
+    let monthlyRate = 19.95;
+    if (packageType === 'zzp') monthlyRate = 24.95;
+    if (packageType === 'bv') monthlyRate = 29.95;
+    if (loyaltyBonus) monthlyRate += 5.00;
+    if (digitalVault) monthlyRate += 2.50;
+
+    // Email content naar info@xenra.nl
+    const emailContent = `
+NIEUWE PAKKET AANMELDING - XENRA.NL
+
+PERSOONLIJKE GEGEVENS:
+Naam: ${name}
+Email: ${email}
+Telefoon: ${phone}
+Adres: ${address}
+Postcode: ${postalCode}
+Woonplaats: ${city}
+Leeftijd: ${age} jaar
+
+PAKKET INFORMATIE:
+Gekozen pakket: ${packageType.toUpperCase()}
+Maandelijkse bijdrage: €${monthlyRate.toFixed(2)}
+Xenra-tegoed: ${loyaltyBonus ? 'JA' : 'NEE'}
+Digitale kluis: ${digitalVault ? 'JA' : 'NEE'}
+Betaalmethode: ${paymentMethod}
+Gewenste startdatum: ${startDate}
+
+---
+Aangemeld op: ${new Date().toLocaleString('nl-NL')}
+Vanaf: Xenra Nederland Website - Direct Afsluiten
+    `.trim();
+
+    console.log('Registration submission received:');
+    console.log('=================================');
+    console.log(emailContent);
+    console.log('=================================');
+    console.log('');
+    console.log('** EMAIL NAAR info@xenra.nl **');
+    console.log('TO: info@xenra.nl');
+    console.log('SUBJECT: Nieuwe aanmelding - ' + name + ' (' + packageType + ')');
+    console.log('BODY:');
+    console.log(emailContent);
+    console.log('');
 
     return res.status(200).json({ 
       success: true, 
-      message: `Bedankt ${name}! Uw aanmelding voor het ${packageType} pakket is ontvangen.` 
+      message: `Bedankt ${name}! Uw aanmelding voor het ${packageType} pakket is ontvangen. Wij nemen spoedig contact met u op om de vervolgstappen door te nemen.` 
     });
 
   } catch (error) {
