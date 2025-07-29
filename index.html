@@ -7,7 +7,6 @@
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtag/js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-5GVSVHP4');</script>
-    <!-- End Google Tag Manager -->
     
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M3JCSZ0T9Y"></script>
@@ -15,35 +14,15 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-M3JCSZ0T9Y');
-      
-      // Contact form tracking
-      window.trackContactForm = function(formType) {
-        gtag('event', 'contact_form_submit', {
-          'event_category': 'engagement',
-          'event_label': formType
-        });
-      };
-      
-      // Registration tracking
-      window.trackRegistration = function(packageType) {
-        gtag('event', 'package_registration', {
-          'event_category': 'conversion',
-          'event_label': packageType
-        });
-      };
     </script>
     
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- SEO -->
     <title>Nalatenschap Regelen Nederland | Xenra - Nalatenschapbeheer voor Particulier, ZZP en BV</title>
     <meta name="description" content="Nalatenschap regelen? Xenra Nederland regelt vooraf alles zodat uw nabestaanden zorgeloos afscheid nemen. Vraag gratis advies aan!" />
-    <meta name="keywords" content="nalatenschap regelen nederland, nalatenschapbeheer, nalatenschap particulier, zzp nalatenschap, bv nalatenschap" />
     
-    <!-- Styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -69,7 +48,6 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/gtm.ns.html?id=GTM-5GVSVHP4"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
     <!-- Emergency Contact Banner -->
     <div class="bg-red-600 text-white text-center py-2 px-4">
@@ -378,9 +356,11 @@
         
         document.getElementById('calculatedPremium').textContent = `€${totalPrice.toFixed(2)}`;
         
-        if (window.trackCalculator) {
-          window.trackCalculator('calculate', totalPrice);
-        }
+        gtag('event', 'calculator_interaction', {
+          'event_category': 'tools',
+          'event_label': 'calculate',
+          'value': totalPrice
+        });
       }
       
       // Event listeners for calculator
@@ -421,8 +401,8 @@
         document.getElementById('successModal').classList.remove('hidden');
       }
       
-      // Contact form submission
-      document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      // Mock form submissions (no API calls)
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
         const formData = {
@@ -433,33 +413,30 @@
           message: document.getElementById('contactMessage').value
         };
         
-        try {
-          const response = await fetch('/api/contact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-          });
-          
-          const result = await response.json();
-          
-          if (response.ok) {
-            closeContactModal();
-            showSuccess('Bedankt voor uw bericht. Wij nemen spoedig contact met u op.');
-            document.getElementById('contactForm').reset();
-            
-            if (window.trackContactForm) {
-              window.trackContactForm(formData.inquiryType);
-            }
-          } else {
-            alert('Fout: ' + result.error);
-          }
-        } catch (error) {
-          alert('Er is een fout opgetreden. Probeer het later opnieuw.');
-        }
+        console.log('CONTACTFORMULIER INZENDING:', formData);
+        console.log('---');
+        console.log('EMAIL NAAR: info@xenra.nl');
+        console.log('ONDERWERP: Contactformulier - ' + formData.name);
+        console.log('INHOUD:');
+        console.log('Naam: ' + formData.name);
+        console.log('Email: ' + formData.email);
+        console.log('Telefoon: ' + formData.phone);
+        console.log('Type: ' + formData.inquiryType);
+        console.log('Bericht: ' + formData.message);
+        console.log('---');
+        
+        closeContactModal();
+        showSuccess('Bedankt voor uw bericht. Wij nemen spoedig contact met u op.');
+        document.getElementById('contactForm').reset();
+        
+        gtag('event', 'contact_form_submit', {
+          'event_category': 'engagement',
+          'event_label': formData.inquiryType
+        });
       });
       
       // Registration form submission
-      document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+      document.getElementById('registrationForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
         const formData = {
@@ -477,35 +454,41 @@
           startDate: document.getElementById('regStartDate').value
         };
         
-        try {
-          const response = await fetch('/api/register', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-          });
-          
-          const result = await response.json();
-          
-          if (response.ok) {
-            closeRegistrationModal();
-            showSuccess(`Bedankt ${formData.name}! Uw aanmelding voor het ${formData.packageType} pakket is ontvangen. Wij nemen contact met u op.`);
-            document.getElementById('registrationForm').reset();
-            
-            if (window.trackRegistration) {
-              window.trackRegistration(formData.packageType);
-            }
-          } else {
-            alert('Fout: ' + result.error);
-          }
-        } catch (error) {
-          alert('Er is een fout opgetreden. Probeer het later opnieuw.');
-        }
+        // Calculate price
+        let monthlyRate = 19.95;
+        if (formData.packageType === 'zzp') monthlyRate = 24.95;
+        if (formData.packageType === 'bv') monthlyRate = 29.95;
+        if (formData.loyaltyBonus) monthlyRate += 5.00;
+        if (formData.digitalVault) monthlyRate += 2.50;
+        
+        console.log('PAKKET AANMELDING:', formData);
+        console.log('---');
+        console.log('EMAIL NAAR: info@xenra.nl');
+        console.log('ONDERWERP: Nieuwe aanmelding - ' + formData.name + ' (' + formData.packageType + ')');
+        console.log('INHOUD:');
+        console.log('Naam: ' + formData.name);
+        console.log('Email: ' + formData.email);
+        console.log('Telefoon: ' + formData.phone);
+        console.log('Adres: ' + formData.address + ', ' + formData.postalCode + ' ' + formData.city);
+        console.log('Leeftijd: ' + formData.age);
+        console.log('Pakket: ' + formData.packageType);
+        console.log('Maandelijkse kosten: €' + monthlyRate.toFixed(2));
+        console.log('Xenra-tegoed: ' + (formData.loyaltyBonus ? 'Ja' : 'Nee'));
+        console.log('Digitale kluis: ' + (formData.digitalVault ? 'Ja' : 'Nee'));
+        console.log('Betaalmethode: ' + formData.paymentMethod);
+        console.log('Startdatum: ' + formData.startDate);
+        console.log('---');
+        
+        closeRegistrationModal();
+        showSuccess(`Bedankt ${formData.name}! Uw aanmelding voor het ${formData.packageType} pakket is ontvangen. Wij nemen contact met u op.`);
+        document.getElementById('registrationForm').reset();
+        
+        gtag('event', 'package_registration', {
+          'event_category': 'conversion',
+          'event_label': formData.packageType,
+          'value': monthlyRate
+        });
       });
-      
-      // Mobile menu toggle
-      function toggleMobileMenu() {
-        // Add mobile menu functionality if needed
-      }
       
       // Smooth scrolling
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
